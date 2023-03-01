@@ -1,0 +1,137 @@
+c----------------------------------------------------------------------
+c --- COMMON BLOCK /VOL2/   -- Volume source data for sources   CALPUFF
+c                              with variable characterisitics
+c                              in VOLEMARB.DAT files
+c----------------------------------------------------------------------
+c
+      character*12 cslst4
+      character*16 cid4
+
+      logical*4 lutmvl2,llccvl2,lpsvl2,lemvl2,llazavl2,lttmvl2
+      character*4 utmhemvl2,xyunitvl2
+      character*8 datumvl2,pmapvl2
+      character*12 datenvl2
+
+      common/VOL2/ NVL2,NSE4,
+     1      IBSRC4(mxemdat),IESRC4(mxemdat),
+     2      IBDATHR4(mxemdat),IBSEC4(mxemdat),IEDATHR4(mxemdat),
+     3      IESEC4(mxemdat),XTZ4(mxemdat),T2BTZ4(mxemdat),
+     4      XMWEM4(mxspec),IXREM4(mxspec),
+     5      lutmvl2(mxemdat),llccvl2(mxemdat),lpsvl2(mxemdat),
+     6      lemvl2(mxemdat),llazavl2(mxemdat),lttmvl2(mxemdat),
+     7      iutmznvl2(mxemdat),feastvl2(mxemdat),fnorthvl2(mxemdat),
+     8      rnlat0vl2(mxemdat),relon0vl2(mxemdat),
+     9      rnlat1vl2(mxemdat),rnlat2vl2(mxemdat),NSTEP4(mxemdat),
+     &      NDHRQB4(mxqstep,mxemdat),NSECQB4(mxqstep,mxemdat),
+     1      NDHRQE4(mxqstep,mxemdat),NSECQE4(mxqstep,mxemdat),
+     2      XVL2GRD(mxqstep,mxvol),YVL2GRD(mxqstep,mxvol),
+     3      HTVL2(mxqstep,mxvol),ELVL2(mxqstep,mxvol),
+     4      SY0VL2(mxqstep,mxvol),SZ0VL2(mxqstep,mxvol),
+     5      QVL2(mxspec,mxqstep,mxvol),NEWVL2(mxvol),
+     6      CSLST4(mxspec),CID4(mxvol),
+     7      pmapvl2(mxemdat),utmhemvl2(mxemdat),datumvl2(mxemdat),
+     8      datenvl2(mxemdat),xyunitvl2(mxemdat)
+
+
+c
+c --- COMMON BLOCK /VOL2/ Variables:
+c             NVL2 - integer  - Number of volume sources
+c             NSE4 - integer  - Number of emitted species in the file
+c  IBSRC4(mxemdat) - integer  - Index for first source in a VOLEMARB.DAT
+c                               file
+c  IESRC4(mxemdat) - integer  - Index for last source in a VOLEMARB.DAT
+c                               file
+c IBDATHR4(mxemdat)- integer  - Date/hour at beginning of period for
+c                               the first data record in the file
+c                               (YYYYJJJHH, where YYYY=year,
+c                               JJJ=Julian day, HH=hour [00-23 LST])
+c  IBSEC4(mxemdat) - integer  - Seconds of the first data record in the
+c                               file  (0000-3599)
+c IEDATHR4(mxemdat)- integer  - Date/hour at end of period for
+c                               the last data record in the file
+c                               (YYYYJJJHH, where YYYY=year,
+c                               JJJ=Julian day, HH=hour [00-23 LST])
+c  IESEC4(mxemdat) - integer  - Seconds of the last data record in the
+c                               file  (0000-3599)
+c    XTZ4(mxemdat) - real     - Time zone (UTC=LST+XTZ4)
+c  T2BTZ4(mxemdat) - real     - Hours to ADD to Local Time to obtain
+c                               Base Time (xtz3-xbtz)
+c   XMWEM4(mxspec) - real     - Molecular weight for each species
+c   IXREM4(mxspec) - integer  - Cross referencing array of NSE4
+c                               values relating species ordering
+c                               in the emissions file to the
+c                               ordering in the main conc. array
+c
+c --- MAP Projection Variables ---
+c
+c LUTMVL2(mxemdat)  - logical*4 - Flag for Universal Transverse Mercator
+c LLCCVL2(mxemdat)  - logical*4 - Flag for Lambert Conformal Conic
+c LPSVL2(mxemdat)   - logical*4 - Flag for Polar Stereographic
+c LEMVL2(mxemdat)   - logical*4 - Flag for Equatorial Mercator
+c LLAZAVL2(mxemdat) - logical*4 - Flag for Lambert Azimuthal Equal Area
+c LTTMVL2(mxemdat)  - logical*4 - Flag for Tangential Transverse Mercator
+c
+c IUTMZNVL2(mxemdat) - integer - UTM zone for UTM projection
+c FEASTVL2(mxemdat)  - real    - False Easting (km) at projection origin
+c FNORTHVL2(mxemdat) - real    - False Northing (km) at projection origin
+c RNLAT0VL2(mxemdat),- real    - N. latitude & E. longitude of x=0 and y=0
+c RELON0VL2(mxemdat) (deg)       of map projection (Used only if PMAP =
+c                                LCC, PS, EM, TTM or LAZA) 
+c                                NOTE: longitude neg in western hemisphere
+c RNLAT1VL2(mxemdat), - real   - Matching N. latitude(s) for projection
+c RNLAT2VL2(mxemdat) (deg)       (Used only if PMAP3= LCC, PS, or EM)
+c                            LCC :  Projection cone slices through
+c                                   Earth's surface at XLAT1 and XLAT2
+c                            PS  :  Projection plane slices through
+c                                   Earth at XLAT1
+c                            EM  :  Projection cylinder slices through
+c                                   Earth at [+/-] XLAT1
+c
+c ---  Variable data  ---
+c
+c    NSTEP4(mxemdat) - integer  - Number of emission steps in
+c                                 current timestep
+c NDHRQB4(mxqstep,mxemdat) & NSECQB4(mxqstep,mxemdat)
+c                    - integer  - Starting time for which
+c                                 emissions data in current set of
+c                                 records is valid
+c                                 (YYYYJJJHH & SSSS)
+c NDHRQE4(mxqstep,mxemdat) & NSECQE4(mxqstep,mxemdat)
+c                    - integer  - Ending time for which
+c                                 emissions data in current set of
+c                                 records is valid
+c                                 (YYYYJJJHH & SSSS)
+c XVL2GRD(mxqstep,mxvol) - real - X coordinate of a volume
+c                                 source in grid units
+c                                 (i.e., origin at (0.0,0.0))
+c YVL2GRD(mxqstep,mxvol) - real - Y coordinate of a volume
+c                                 source in grid units
+c                                 (i.e., origin at (0.0,0.0))
+c   HTVL2(mxqstep,mxvol) - real - Effective release height (m)
+c   ELVL2(mxqstep,mxvol) - real - Ground elevation (m) above sea
+c                                 level
+c  SY0VL2(mxqstep,mxvol) - real - Initial sigma y (m)
+c  SZ0VL2(mxqstep,mxvol) - real - Initial sigma z (m)
+c QVL2(mxspec,mxqstep,mxvol)
+c                        - real - Emission rate (g/s) for each
+c                                 pollutant
+c    NEWVL2(mxvol) - integer    - Number of puffs released by each
+c                                 source during the current step
+c
+c ---  Character data ---
+c   CSLST4(mxspec) - char*12    - Species identifiers
+c      CID4(mxvol) - char*16    - Source identifiers
+c
+c  PMAPVL2(mxemdat) - character - Character code for output map projection
+c                                 UTM :  Universal Transverse Mercator
+c                                 LCC :  Lambert Conformal Conic
+c                                 PS  :  Polar Stereographic
+c                                 EM  :  Equatorial Mercator
+c                                 LAZA:  Lambert Azimuthal Equal Area
+c                                 TTM :  Tangential Transverse Mercator
+c UTMHEMVL2(mxemdat)- character - Base hemisphere for UTM projection
+c                                 (S=southern, N=northern)
+c DATUMVL2(mxemdat) - character - Datum-Region for grid coordinates
+c DATENVL2(mxemdat) - character - NIMA date for datum parameters
+c                                 (MM-DD-YYYY  )
+c XYUNITVL2(mxemdat)- character - Units for coordinates (e.g., KM)

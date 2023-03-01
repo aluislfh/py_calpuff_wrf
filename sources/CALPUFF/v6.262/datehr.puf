@@ -1,0 +1,34 @@
+c----------------------------------------------------------------------
+c --- COMMON BLOCK /DATEHR/ -- Date/time variables              CALPUFF
+c----------------------------------------------------------------------
+c
+      common/datehr/nyrb,nmob,ndayb,njulb,nhrb,nsecb,ndathrb,
+     1              nyre,nmoe,ndaye,njule,nhre,nsece,ndathre,
+     2              nyrm,njulm,nhrm,nsecm,ndathrm,
+     3              nyrab,nmoab,ndayab,njulab,nhrab,nsecab,
+     4              nhrind,xbtz
+c
+c --- COMMON BLOCK /DATEHR/ Variables:
+c    NYR[B,M,E] - integer    - Four digit year
+c      NMO[B,E] - integer    - Month
+c     NDAY[B,E] - integer    - Day of month
+c   NJUL[B,M,E] - integer    - Julian day
+c    NHR[B,M,E] - integer    - Current hour (00-23)
+c   NSEC[B,M,E] - integer    - Current second (0-3599)
+c NDATHR[B,M,E] - integer    - Code date and time (YYYYJJJHH, where
+c                              YYYY=year, JJJ=Julian day, HH=hour)
+c----------------------------------------------------------------------
+c --- Note:  B,E denotes date-time at the beginning or end of the step
+c            M denotes date-time at the middle of the step
+c----------------------------------------------------------------------
+c         NYRAB - integer    - Four digit year
+c         NMOAB - integer    - Month
+c        NDAYAB - integer    - Day of month
+c        NJULAB - integer    - Julian day
+c         NHRAB - integer    - Current hour (00-23)
+c        NSECAB - integer    - Current second (0-3599)
+c----------------------------------------------------------------------
+c --- Note:  AB denotes date-time at the Beginning of an Averaging Pd
+c----------------------------------------------------------------------
+c        NHRIND - integer    - Hour index (01-24) for midpoint of step
+c          XBTZ - real       - Base time zone for current date/time

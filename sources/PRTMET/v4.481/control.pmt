@@ -1,0 +1,154 @@
+c-----------------------------------------------------------------------
+c --- COMMON BLOCK /CONTROL/ -- Program control data              PRTMET
+c-----------------------------------------------------------------------
+      logical LHDV,LMETCF,LSFC,LUPC,LPRC,LNEARS,LSURF,LSURFG
+      logical LLI,LLU,LTE,LZ0,LSTAB,LUSTR,LMOLN,LWSTR,LMXHT,LPRAT
+      logical LVECT,LTEMP,LPREC,LMIXH,LIPGT
+      logical LSNAPTXT
+
+      integer iuvout(mxnz),iwout(mxnz),itout(mxnz)
+      integer iwplt(mxnz),itplt(mxnz)
+      integer ksnap(mxsnap),kmean(mxav),tsnap(mxsnap)
+      integer nsecdt3d,itime3d
+      character*4 asnap(mxsnap),amean(mxav)
+
+      common /CONTROL/ METFM,IMAGE,IBYR,IBMO,IBDY,ibjul,IBHR,ibsec,
+     &                 IEYR,IEMO,IEDY,iejul,IEHR,iesec,
+     &                 ICHR,LHDV,LMETCF,LSFC,LUPC,LPRC,LNEARS,LSURF,
+     &                 LSURFG,LLI,LLU,LTE,LZ0,IFLI,IFLU,IFTE,IFZ0,
+     &                 LSTAB,LUSTR,LMOLN,LWSTR,LMXHT,LPRAT,
+     &                 IFSTAB,IFUSTR,IFMOLN,IFWSTR,IFMXHT,IFPRAT,
+     &                 IPWS,WSFAC,IFWS,N3D,iuvout,iwout,itout,
+     &                 nsecdt3d,itime3d,nvecstep,
+     &                 LVECT,LTEMP,LPREC,LMIXH,LIPGT,LSNAPTXT,MVECT,
+     &                 NZPLOT,iwplt,itplt,NSNAP,NMEAN,IBEGAV,IENDAV,
+     &                 ksnap,tsnap,kmean,asnap,amean
+
+c-----------------------------------------------------------------------
+c     DEFINITIONS  [i]=integer   [r]=real   [l]=logical   [c]=character
+c-----------------------------------------------------------------------
+c METFM          Input meteorological file format type               [i]
+c                  1 = CALMET.DAT
+c                  2 = 3D.DAT
+c IMAGE          Output GRD file format for SURFER IMAGE maps        [i]
+c                  0 = Standard GRD (for SURFER 8)
+c                  1 = GRD ranges shifted from cell-centers to
+c                      cell-edges (for SURFER 7)
+c ibyr           beginning year for processing                       [i]
+c ibmo           beginning month for processing                      [i]
+c ibdy           beginning day for processing                        [i]
+c ibjul          beginning Julian day for processing                 [i]
+c ibhr           beginning time (hour) for processing (LST)          [i]
+c ibsec          beginning time (seconds) for processing             [i]
+c ieyr           ending year for processing                          [i]
+c iemo           ending month for processing                         [i]
+c iedy           ending day for processing                           [i]
+c iejul          ending Julian day for processing                    [i]
+c iehr           ending time (hour) for processing (LST)             [i]
+c ibsec          ending time (seconds) for processing                [i]
+c ichr           Time interval between printed/plotted fields        [i]
+c                (timesteps)
+c LHDV           Print CALMET header run variables (T/F)             [L]
+c LMETCF         Print full CALMET control file image (T/F)          [L]
+c LSFC           Print surface station (X,Y)       (T/F)             [L]
+c LUPC           Print upper air station (X,Y)     (T/F)             [L]
+c LPRC           Print precipitation station (X,Y) (T/F)             [L]
+c LNEARS         Print nearest surface station ID  (T/F)             [L]
+c LSURF          Print surface station meteorological data (T/F)     [L]
+c                 (temp, rho, SW rad, rh, precip code)
+c LSURFG         Print 2-D surface meteorological data (T/F)         [L]
+c                 (temp, rho, SW rad, rh, precip code)
+c LLI            Print 2-D gridded domain Leaf Area Index  (T/F)     [L]
+c LLU            Print 2-D gridded domain Landuse  (T/F)             [L]
+c LTE            Print 2-D gridded domain Terrain  (T/F)             [L]
+c LZ0            Print 2-D gridded domain Roughness(T/F)             [L]
+c
+c     Format used when printing gridded domain characteristics
+c     (used only if corresponding LLI,LLU,LTE,LZ0 is true)
+c               0 = use self-scaling exponential format
+c               1 = use fixed decimal format
+c IFLI          Leaf Area Index                                      [i]
+c IFLU          Landuse                                              [i]
+c IFTE          Terrain                                              [i]
+c IFZ0          Roughness                                            [i]
+c
+c LSTAB         Print 2-D gridded PG stability     (T/F)             [L]
+c LUSTR         Print 2-D gridded u-star           (T/F)             [L] 
+c LMOLN         Print 2-D gridded Monin-Obukhov L  (T/F)             [L] 
+c LWSTR         Print 2-D gridded w-star           (T/F)             [L] 
+c LMXHT         Print 2-D gridded mixing ht        (T/F)             [L] 
+c LPRAT         Print 2-D gridded precip. rate     (T/F)             [L] 
+c
+c     Format used when printing 2-D gridded meteorological data
+c     (used only if corresponding LSTAB,LUSTR,LMOLN,LWSTR,LMXHT,LPRAT
+c      is true)
+c               0 = use self-scaling exponential format
+c               1 = use fixed decimal format
+c IFSTAB        PG stability                                         [i]
+c IFUSTR        u-star                                               [i]
+c IFMOLN        Monin-Obukhov L                                      [i]
+c IFWSTR        w-star                                               [i]
+c IFMXHT        mixing ht                                            [i]
+c IFPRAT        precip. rate                                         [i]
+c
+c IPWS          Present wind data as speed and direction             [i]
+c                 0 = present as U,V components
+c                 1 = present as wind speed, direction
+c WSFAC        Scale factor to convert wind speed from m/s to:       [r]
+c                 1.0   = m/s
+c                 1.944 = to knots
+c                 2.237 = to mph
+c FWS          Format used when printing wind speeds                 [i]
+c                 0 = use self-scaling exponential format
+c                 1 = use fixed decimal format
+c N3D          Number of layers of 3-D meteorological data printed   [i]
+c IUVOUT(mxnz) Print winds for layer (0:no, 1:yes)                  [ia]
+c IWOUT(mxnz)  Print vertical velocity for layer (0:no, 1:yes)      [ia]
+c ITOUT(mxnz)  Print temperatures for layer (0:no, 1:yes)           [ia]
+c NSECDT3D     Time interval between fields in 3D.DAT file           [i]
+c ITIME3D      Interpretation of time periods in 3D.DAT file         [i]
+c              0:  Actual period from begin/end time pair or
+c                  instantaneous if only a single time is available
+c              1:  Full time interval between fields, with new begin
+c                  time computed from end time
+c LVECT        Create Wind Vector plotfile for each layer each hour? [L]
+c LTEMP        Create Temperature plotfile for each layer each hour? [L]
+c LPREC        Create Precipitation plotfile for each hour?          [L]
+c LMIXH        Create Mixing Height plotfile for each hour?          [L]
+c LIPGT        Create PGT Stability plotfile for each hour?          [L]
+c LSNAPTXT     All snapshot files are ASCII (text)?                  [L]
+c MVECT        Type of files for vector plots                        [i]
+c                 0 = *.vec        (SURFER POST file)
+c                 1 = *.wsp,*.wdr (speed and direction SURFER GRD files)
+c NVECSTEP     Step for points posted in the VEC (MVECT=0) plot file [i]
+c                 0: Compute step internally
+c                 n: Post wind vector at every nth cell (skip n-1)
+c NZPLOT       Number of layers of 3-D meteorological data plotted   [i]
+c IWPLT(mxnz)  Plot winds for layer (0:no, 1:yes)                   [ia]
+c ITPLT(mxnz)  Plot temperatures for layer (0:no, 1:yes)            [ia]
+c NSNAP        Number of snapshot plotfiles explicitly defined       [i]
+c NMEAN        Number of average field plotfiles                     [i]
+c IBEGAV       Time period to begin averaging                        [i]
+c              (position within processing period)
+c IENDAV       Time period to end averaging                          [i]
+c              (position within processing period)
+c KSNAP(mxsnap) Vertical layer for snapshot plot                    [ia]
+c TSNAP(mxsnap) Snapshot hour (position within processing period)   [ia]
+c KMEAN(mxav)   Vertical layer for average field plot               [ia]
+c ASNAP(mxsnap) 4-character name for snapshot variable              [ca]
+c AMEAN(mxav)   4-character name for average field variable         [ca]
+c                VECT = wind field (vector plot)
+c                UVEL = u-component of the wind (contour plot)
+c                VVEL = v-component of the wind (contour plot)
+c                WVEL = w-component of the wind (contour plot)
+c                TEMP = temperature (contour plot)
+c                WDIR = wind direction (contour plot)
+c                WSPE = wind speed (contour plot)
+c                IPGT = PG stability class (contour plot)
+c                USTA = friction velocity u-star (contour plot)
+c                MONL = Monin-Obukhov length (contour plot)
+c                WSTA = convective velocity w-star (contour plot)
+c                MIXH = mixing height (contour plot)
+c                PREC = precipitation rate (contour plot)
+
+c-----------------------------------------------------------------------

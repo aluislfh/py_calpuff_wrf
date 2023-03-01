@@ -1,0 +1,71 @@
+Lahey/Fujitsu Fortran 95 Express Release 7.10.02  S/N: 003050432726350
+Copyright (C) 1994-2004 Lahey Computer Systems.  All rights reserved.
+Copyright (C) 1998-2004 FUJITSU LIMITED. All rights reserved.
+Compiling program unit main at line 1:
+Compiling program unit __BLKDT__ at line 313:
+Compiling program unit xtractll at line 383:
+Compiling program unit yr4 at line 254:
+Compiling program unit yr4c at line 305:
+Compiling program unit qayr4 at line 349:
+Compiling program unit julday at line 436:
+Compiling program unit grday at line 501:
+Compiling program unit dedat at line 551:
+Compiling program unit deltt at line 579:
+Compiling program unit incr at line 645:
+Compiling program unit indecr at line 739:
+Compiling program unit incrs at line 818:
+Compiling program unit deltsec at line 885:
+Compiling program unit midnite at line 929:
+Compiling program unit utcbasr at line 998:
+Compiling program unit basrutc at line 1034:
+Compiling program unit filcase at line 1081:
+Compiling program unit readin at line 1155:
+Compiling program unit altonu at line 1788:
+Compiling program unit deblnk at line 2120:
+Compiling program unit deplus at line 2181:
+Compiling program unit tright at line 2237:
+Compiling program unit tleft at line 2315:
+Compiling program unit setvar at line 2394:
+Compiling program unit allcap at line 2476:
+Compiling program unit datetm at line 2528:
+Compiling program unit etime at line 2601:
+Compiling program unit undrflw at line 2622:
+Compiling program unit comline at line 2655:
+Compiling program unit setup at line 387:
+Compiling program unit readcf at line 696:
+Compiling program unit qainp at line 1207:
+Compiling program unit comp at line 1578:
+Compiling program unit rdi1d at line 2947:
+Compiling program unit rdr1d at line 2995:
+Compiling program unit rdr2d at line 3042:
+Compiling program unit wswd at line 3124:
+Compiling program unit rdi2d at line 3174:
+Compiling program unit out at line 3248:
+Compiling program unit wrt at line 3498:
+Compiling program unit wrt2 at line 3535:
+Compiling program unit xmult at line 3560:
+Compiling program unit outfx at line 3596:
+Compiling program unit wrtfx at line 3721:
+Compiling program unit outifx at line 3758:
+Compiling program unit wrtifx at line 3884:
+Compiling program unit initar at line 3921:
+Compiling program unit grdoutr at line 3953:
+Compiling program unit grdouti at line 4100:
+Compiling program unit vector at line 4229:
+Compiling program unit methdx at line 4320:
+Compiling program unit rdhd53 at line 5087:
+Compiling program unit methd3d at line 5394:
+Compiling program unit fin at line 5631:
+Compiling program unit rdmet at line 5715:
+Compiling program unit nextfil at line 6279:
+Compiling program unit rd3d at line 6306:
+Compiling program unit esat at line 6623:
+Compiling program unit mkcmn at line 6654:
+Encountered 0 errors, 0 warnings in file prtmet.for.
+Microsoft (R) Incremental Linker Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+LINK : warning LNK4005: no objects used from library c:\LF9571\Bin\..\lib\fj90b.lib
+LINK : warning LNK4005: no objects used from library c:\LF9571\Bin\..\lib\advapi32.lib
+LINK : warning LNK4005: no objects used from library c:\LF9571\Bin\..\lib\uuid.lib
+Compiling file prtmet.for.

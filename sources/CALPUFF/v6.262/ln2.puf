@@ -1,0 +1,180 @@
+c----------------------------------------------------------------------
+c --- COMMON BLOCK /LN2/ -- Emission parameters for buoyant     CALPUFF
+c                           line sources (variable)
+c----------------------------------------------------------------------
+c
+      character*12 cslst5
+      character*16 cid5
+
+      logical*4 lutmln2,llccln2,lpsln2,lemln2,llazaln2,lttmln2
+      character*4 utmhemln2,xyunitln2
+      character*8 datumln2,pmapln2
+      character*12 datenln2
+
+      common/LN2/NLN2,NSE5,ILNGRP(mxlines),
+     1      IBDATHR5,IBSEC5,IEDATHR5,IESEC5,XTZ5,T2BTZ5,
+     2      XMWEM5(mxspec),IXREM5(mxspec),MXNSEG2,NLRISE2,
+     3      lutmln2,llccln2,lpsln2,lemln2,llazaln2,lttmln2,iutmznln2,
+     4      feastln2,fnorthln2,rnlat0ln2,relon0ln2,rnlat1ln2,rnlat2ln2,
+     5      NSTEP5,NDHRQB5(mxqstep),NSECQB5(mxqstep),
+     6      NDHRQE5(mxqstep),NSECQE5(mxqstep),
+     7      NLINES2(mxqstep),IDLINE(mxqstep,mxlines),
+     8      NL2(mxqstep,mxlngrp),XL2(mxqstep,mxlngrp),
+     9      HBL2(mxqstep,mxlngrp), WBL2(mxqstep,mxlngrp),
+     &      WML2(mxqstep,mxlngrp), DXL2(mxqstep,mxlngrp),
+     1      FPRIMEL2(mxqstep,mxlngrp), WSEP2(mxqstep,mxlngrp),
+     2      FPTOT2(mxqstep,mxlngrp), FBPT2(mxqstep,mxlngrp),
+     3      XL2BAR(mxqstep,mxlngrp), YL2BAR(mxqstep,mxlngrp),
+     4      ORIENTL2(mxqstep,mxlngrp), 
+     5      XL2BEGGRD(mxqstep,mxlines), YL2BEGGRD(mxqstep,mxlines),
+     6      XL2ENDGRD(mxqstep,mxlines), YL2ENDGRD(mxqstep,mxlines),
+     7      HSL2(mxqstep,mxlines), BELEVL2(mxqstep,mxlines),
+     8      XVERTL2(4,mxqstep,mxlines), YVERTL2(4,mxqstep,mxlines),
+     9      ARLINE2(mxqstep,mxlines), NSEG2(mxqstep,mxlines),
+     &      QTL2(mxspec,mxqstep,mxlines), NEWLN2(mxlines),
+     1      CSLST5(mxspec),CID5(mxlines),
+     2      pmapln2,utmhemln2,datumln2,datenln2,xyunitln2
+
+c
+c --- COMMON BLOCK /LN2/ variables:
+c
+c             NLN2 - integer  - Total number of line sources
+c             NSE5 - integer  - Number of emitted species in file
+c  ILNGRP(mxlines) - integer  - Group ID for each line source ID
+c         IBDATHR5 - integer  - Date/hour at beginning of period for
+c                               the first data record in the file
+c                               (YYYYJJJHH, where YYYY=year,
+c                               JJJ=Julian day, HH=hour [00-23 LST])
+c           IBSEC5 - integer  - Seconds of the first data record in the
+c                               file  (0000-3599)
+c         IEDATHR5 - integer  - Date/hour at end of period for
+c                               the last data record in the file
+c                               (YYYYJJJHH, where YYYY=year,
+c                               JJJ=Julian day, HH=hour [00-23 LST])
+c           IESEC5 - integer  - Seconds of the last data record in the
+c                               file  (0000-3599)
+c             XTZ5 - real     - Time zone (UTC=LST+XTZ5)
+c           T2BTZ5 - real     - Hours to ADD to Local Time to obtain
+c                               Base Time (xtz3-xbtz)
+c   XMWEM5(mxspec) - real     - Species molecular weight
+c   IXREM5(mxspec) - integer  - Cross-referencing array of "NSE5"
+c                               values relating species ordering
+c                               in the emissions file to the
+c                               ordering in the main conc. array
+c          MXNSEG2 - integer  - Upper limit on number of segments
+c                               along line from which slugs are
+c                               generated
+c          NLRISE2 - integer  - Number of points used to tabulate
+c                               plume rise from group of lines
+c
+c --- MAP Projection Variables ---
+c
+c        LUTMLN2  - logical*4 - Flag for Universal Transverse Mercator
+c        LLCCLN2  - logical*4 - Flag for Lambert Conformal Conic
+c        LPSLN2   - logical*4 - Flag for Polar Stereographic
+c        LEMLN2   - logical*4 - Flag for Equatorial Mercator
+c        LLAZALN2 - logical*4 - Flag for Lambert Azimuthal Equal Area
+c        LTTMLN2  - logical*4 - Flag for Tangential Transverse Mercator
+c
+c       IUTMZNLN2 - integer - UTM zone for UTM projection
+c       FEASTLN2  - real    - False Easting (km) at projection origin
+c       FNORTHLN2 - real    - False Northing (km) at projection origin
+c     RNLAT0LN2,  - real    - N. latitude & E. longitude of x=0 and y=0
+c      RELON0LN2  (deg)       of map projection (Used only if PMAP =
+c                                LCC, PS, EM, TTM or LAZA) 
+c                                NOTE: longitude neg in western hemisphere
+c     RNLAT1LN2,  - real    - Matching N. latitude(s) for projection
+c      RNLAT2LN2  (deg)       (Used only if PMAP5= LCC, PS, or EM)
+c                            LCC :  Projection cone slices through
+c                                   Earth's surface at XLAT1 and XLAT2
+c                            PS  :  Projection plane slices through
+c                                   Earth at XLAT1
+c                            EM  :  Projection cylinder slices through
+c                                   Earth at [+/-] XLAT1
+c
+c ---  Variable data  -------------------------------------------------
+c
+c             NSTEP5 - integer  - Number of emission substeps in
+c                                 current timestep
+c NDHRQB5(mxqstep) & NSECQB5(mxqstep)
+c                    - integer  - Starting time for which
+c                                 emissions data in current set of
+c                                 records is valid
+c                                 (YYYYJJJHH & SSSS)
+c NDHRQE5(mxqstep) & NSECQE5(mxqstep)
+c                    - integer  - Ending time for which
+c                                 emissions data in current set of
+c                                 records is valid
+c                                 (YYYYJJJHH & SSSS)
+c   NLINES2(mxqstep) - integer  - Number of active line sources in
+c                                 emission substep
+c    IDLINE(mxqstep,mxlines)
+c                    - integer  - Line source ID for each active
+c                                 line source in emission substep
+c
+c ---  Group Properties
+c
+c       NL2(mxqstep,mxlngrp) - int   - Number of lines in each active
+c                                      group
+c       XL2(mxqstep,mxlngrp) - real  - Average line source length (m)
+c      HBL2(mxqstep,mxlngrp) - real  - Average line source height (m)
+c      WBL2(mxqstep,mxlngrp) - real  - Average building width (m)
+c      WML2(mxqstep,mxlngrp) - real  - Average line source width (m)
+c      DXL2(mxqstep,mxlngrp) - real  - Average building separation (m)
+c  FPRIMEL2(mxqstep,mxlngrp) - real  - Average buoyancy parameter/line
+c                                      in units of (m**4/s**3)
+c     WSEP2(mxqstep,mxlngrp) - real  - Average separation between lines
+c                                      (WBL+DXL)  (m)
+c    FPTOT2(mxqstep,mxlngrp) - real  - Total buoyancy parameter
+c                                      (FPRIMEL*NLINES)
+c     FBPT2(mxqstep,mxlngrp) - real  - "Point Source" buoyancy parameter
+c                                      (FPTOT/pi)
+c    XL2BAR(mxqstep,mxlngrp) - real  - X-center of group (met grid)
+c    YL2BAR(mxqstep,mxlngrp) - real  - Y-center of group (met grid)
+c  ORIENTL2(mxqstep,mxlngrp) - real  - Orientation of group
+c                                      (radians, CW from N)
+c ---  Line Properties
+c
+c XL2BEGGRD(mxqstep,mxlines) - real  - Beginning X coordinate of the lines
+c                                      (in met. grid units w/ origin at
+c                                      (0.0,0.0))
+c YL2BEGGRD(mxqstep,mxlines) - real  - Beginning Y coordinate of the lines
+c                                      (in met. grid units w/ origin at
+c                                      (0.0,0.0))
+c XL2ENDGRD(mxqstep,mxlines) - real  - Ending X coordinate of the lines
+c                                      (in met. grid units w/ origin at
+c                                      (0.0,0.0))
+c YL2ENDGRD(mxqstep,mxlines) - real  - Ending Y coordinate of the lines
+c                                      (in met. grid units w/ origin at
+c                                      (0.0,0.0))
+c      HSL2(mxqstep,mxlines) - real  - Pollutant release height (m)
+c   BELEVL2(mxqstep,mxlines) - real  - Base elevation (MSL) of line
+c XVERTL2(4,mxqstep,mxlines) - real  - X-coord. (met grid) of vertices
+c                                      defining 4 corners of each line
+c YVERTL2(4,mxqstep,mxlines) - real  - Y-coord. (met grid) of vertices
+c                                      defining 4 corners of each line
+c   ARLINE2(mxqstep,mxlines) - real  - Area of line source (m**2)
+c     NSEG2(mxqstep,mxlines) - real  - Number of segments used for line
+c                                      in current step
+c QTL2(mxspec,mxqstep,mxlines)- real - Pollutant emission rates (g/s)
+c                                      for each line
+c            NEWLN2(mxlines) - int   - Number of puffs released by each
+c                                      source during the current step
+c
+c ---  Character data ---
+c    CSLST5(mxspec) - char*12   - Species identifiers
+c     CID5(mxlines) - char*16   - Line source names
+c
+c           PMAPLN2 - character - Character code for output map projection
+c                                 UTM :  Universal Transverse Mercator
+c                                 LCC :  Lambert Conformal Conic
+c                                 PS  :  Polar Stereographic
+c                                 EM  :  Equatorial Mercator
+c                                 LAZA:  Lambert Azimuthal Equal Area
+c                                 TTM :  Tangential Transverse Mercator
+c         UTMHEMLN2 - character - Base hemisphere for UTM projection
+c                                 (S=southern, N=northern)
+c          DATUMLN2 - character - Datum-Region for grid coordinates
+c          DATENLN2 - character - NIMA date for datum parameters
+c                                 (MM-DD-YYYY  )
+c         XYUNITLN2 - character - Units for coordinates (e.g., KM)

@@ -1,0 +1,71 @@
+c----------------------------------------------------------------------
+c --- COMMON BLOCK /DATASET/ -- CALPUFF dataset versions        CALPUFF
+c----------------------------------------------------------------------
+
+      character*16 vercmet,verisc,verplm,verprf,versfc
+      character*16 verparb,veraarb,verlarb,vervarb
+      character*16 veroz,verh2o2,vercoast,verflxb,verbcon,verrest
+
+      common/dataset/ vercmet,verisc,verplm,verprf,versfc,
+     &                verparb(mxemdat),veraarb(mxemdat),
+     &                verlarb,vervarb(mxemdat),
+     &                veroz,verh2o2,vercoast,verflxb,verbcon,verrest
+
+c
+c --- COMMON BLOCK /DATASET/ Variables:
+c         VERCMET - char*16 - Version of the CALMET
+c                             binary meteorological file in
+c                             CALPUFF/CALGRID format
+c                             (CALMET.DAT)
+c          VERISC - char*16 - Version of the ISC-type of
+c                             ASCII meteorological file
+c                             (ISCMET.DAT)
+c          VERPLM - char*16 - Version of the AUSPLUME-type of
+c                             ASCII meteorological file
+c                             (PLMMET.DAT)
+c          VERPRF - char*16 - Version of the input CALPUFF
+c                             file for "tower" met data, including
+c                             turbulence data
+c                             (PROFILE.DAT)
+c          VERSFC - char*16 - Version of the input CALPUFF
+c                             file of surface parameters
+c                             (SURFACE.DAT)
+c         VERPARB - char*16 - Version of the input CALPUFF
+c                             file(s) containing point source emissions
+c                             with arbitrarily-varying source and
+c                             emission parameters
+c                             (PTEMARB.DAT)
+c         VERVARB - char*16 - Version of the input CALPUFF
+c                             file(s) containing volume sources
+c                             with arbitrarily-varying source and
+c                             emission parameters
+c                             (VOLEMARB.DAT)
+c         VERAARB - char*16 - Version of the input CALPUFF
+c                             file(s) containing buoyant area sources
+c                             with arbitrarily-varying location and
+c                             emissions
+c                             (BAEMARB.DAT)
+c         VERLARB - char*16 - Version of the input CALPUFF
+c                             file containing buoyant line sources
+c                             with arbitrarily-varying location and
+c                             emissions
+c                             (LNEMARB.DAT)
+c           VEROZ - char*16 - Version of the input CALPUFF
+c                             file with hourly ozone monitoring data
+c                             (OZONE.DAT)
+c         VERH2O2 - char*16 - Version of the input CALPUFF
+c                             file with hourly H2O2 monitoring data
+c                             (H2O2.DAT)
+c        VERCOAST - char*16 - Version of the input CALPUFF
+c                             file with coast line data used with
+c                             sub-grid TIBL module
+c                             (COASTLN.DAT)
+c         VERFLXB - char*16 - Version of the input CALPUFF
+c                             file with boundary data used for mass
+c                             flux module
+c                             (FLUXBDY.DAT)
+c         VERBCON - char*16 - Version of the input CALPUFF
+c                             file with boundary condition data
+c                             (BCON.DAT)
+c         VERREST - char*16 - Version of the RESTART file
+c                             (RESTART.DAT)

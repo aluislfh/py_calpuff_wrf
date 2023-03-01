@@ -1,0 +1,162 @@
+c----------------------------------------------------------------------
+c --- COMMON BLOCK /AR2/ -- Variable Area source data           CALPUFF
+c
+c----------------------------------------------------------------------
+c
+      character*12 cslst3
+      character*16 cid3,baemunit
+
+      logical*4 lutmar2,llccar2,lpsar2,lemar2,llazaar2,lttmar2
+      character*4 utmhemar2,xyunitar2
+      character*8 datumar2,pmapar2
+      character*12 datenar2
+
+      common/AR2/NAR2,NSE3,
+     &      IBSRC3(mxemdat),IESRC3(mxemdat),IUEM3(mxemdat),
+     1      IBDATHR3(mxemdat),IBSEC3(mxemdat),IEDATHR3(mxemdat),
+     2      IESEC3(mxemdat),XTZ3(mxemdat),T2BTZ3(mxemdat),
+     3      XMWEM3(mxspec),IXREM3(mxspec),
+     4      lutmar2(mxemdat),llccar2(mxemdat),lpsar2(mxemdat),
+     5      lemar2(mxemdat),llazaar2(mxemdat),lttmar2(mxemdat),
+     6      iutmznar2(mxemdat),feastar2(mxemdat),fnorthar2(mxemdat),
+     7      rnlat0ar2(mxemdat),relon0ar2(mxemdat),
+     8      rnlat1ar2(mxemdat),rnlat2ar2(mxemdat),NSTEP3(mxemdat),
+     9      NDHRQB3(mxqstep,mxemdat),NSECQB3(mxqstep,mxemdat),
+     &      NDHRQE3(mxqstep,mxemdat),NSECQE3(mxqstep,mxemdat),
+     1      XAR2GRD(mxvertp1,mxqstep,mxarea),
+     2      YAR2GRD(mxvertp1,mxqstep,mxarea),NVERT2(mxarea),
+     3      HTAR2(mxqstep,mxarea),TKAR2(mxqstep,mxarea),
+     4      ELAR2(mxqstep,mxarea),WEFAR2(mxqstep,mxarea),
+     5      REFAR2(mxqstep,mxarea),SZ0AR2(mxqstep,mxarea),
+     6      AREA2(mxqstep,mxarea),QAR2(mxspec,mxqstep,mxarea),
+     7      NEWAR2(mxarea),NTR0,
+     8      CSLST3(mxspec),CID3(mxarea),BAEMUNIT(mxarea),
+     9      pmapar2(mxemdat),utmhemar2(mxemdat),datumar2(mxemdat),
+     &      datenar2(mxemdat),xyunitar2(mxemdat)
+c
+c --- COMMON BLOCK /AR2/ Variables:
+c
+c             NAR2 - integer  - Number of discrete area sources
+c             NSE3 - integer  - Number of emitted species in files
+c  IBSRC3(mxemdat) - integer  - Index for first source in a
+c                               BAEMARB.DAT file
+c  IESRC3(mxemdat) - integer  - Index for last source in a
+c                               BAEMARB.DAT file
+c   IUEM3(mxemdat) - integer  - Emission rate units flag in MOD6 format
+c                                 1 = g/s
+c                                 2 = g/s/m2
+c IBDATHR3(mxemdat)- integer  - Date/hour at beginning of period for
+c                               the first data record in the file
+c                               (YYYYJJJHH, where YYYY=year,
+c                               JJJ=Julian day, HH=hour [00-23 LST])
+c  IBSEC3(mxemdat) - integer  - Seconds of the first data record in the
+c                               file  (0000-3599)
+c IEDATHR3(mxemdat)- integer  - Date/hour at end of period for
+c                               the last data record in the file
+c                               (YYYYJJJHH, where YYYY=year,
+c                               JJJ=Julian day, HH=hour [00-23 LST])
+c  IESEC3(mxemdat) - integer  - Seconds of the last data record in the
+c                               file  (0000-3599)
+c    XTZ3(mxemdat) - real     - Time zone (UTC=LST+XTZ3)
+c  T2BTZ3(mxemdat) - real     - Hours to ADD to Local Time to obtain
+c                               Base Time (xtz3-xbtz)
+c   XMWEM3(mxspec) - real     - Molecular weight for each species
+c   IXREM3(mxspec) - integer  - Cross referencing array of NSE3
+c                               values relating species ordering
+c                               in the emissions file to the
+c                               ordering in the main conc. array
+c
+c --- MAP Projection Variables ---
+c
+c LUTMAR2(mxemdat)  - logical*4 - Flag for Universal Transverse Mercator
+c LLCCAR2(mxemdat)  - logical*4 - Flag for Lambert Conformal Conic
+c LPSAR2(mxemdat)   - logical*4 - Flag for Polar Stereographic
+c LEMAR2(mxemdat)   - logical*4 - Flag for Equatorial Mercator
+c LLAZAAR2(mxemdat) - logical*4 - Flag for Lambert Azimuthal Equal Area
+c LTTMAR2(mxemdat)  - logical*4 - Flag for Tangential Transverse Mercator
+c
+c IUTMZNAR2(mxemdat) - integer - UTM zone for UTM projection
+c FEASTAR2(mxemdat)  - real    - False Easting (km) at projection origin
+c FNORTHAR2(mxemdat) - real    - False Northing (km) at projection origin
+c RNLAT0AR2(mxemdat),- real    - N. latitude & E. longitude of x=0 and y=0
+c RELON0AR2(mxemdat) (deg)       of map projection (Used only if PMAP =
+c                                LCC, PS, EM, TTM or LAZA) 
+c                                NOTE: longitude neg in western hemisphere
+c RNLAT1AR2(mxemdat), - real   - Matching N. latitude(s) for projection
+c RNLAT2AR2(mxemdat) (deg)       (Used only if PMAP3= LCC, PS, or EM)
+c                         LCC :  Projection cone slices through
+c                                Earth's surface at XLAT1 and XLAT2
+c                         PS  :  Projection plane slices through
+c                                Earth at XLAT1
+c                         EM  :  Projection cylinder slices through
+c                                Earth at [+/-] XLAT1
+c
+c ---  Variable data  ---
+c
+c  NSTEP3(mxemdat) - integer  - Number of emission steps in
+c                               current timestep
+c NDHRQB3(mxqstep,mxemdat) & NSECQB3(mxqstep,mxemdat)
+c                  - integer  - Starting time for which
+c                               emissions data in current set of
+c                               records is valid
+c                               (YYYYJJJHH & SSSS)
+c NDHRQE3(mxqstep,mxemdat) & NSECQE3(mxqstep,mxemdat)
+c                  - integer  - Ending time for which
+c                               emissions data in current set of
+c                               records is valid
+c                               (YYYYJJJHH & SSSS)
+c XAR2GRD(mxvertp1,mxqstep,mxarea)
+c                      - real - X coordinate of a vertex of a
+c                               discrete area source in grid units
+c                               (i.e., origin at (0.0,0.0))
+c YAR2GRD(mxvertp1,mxqstep,mxarea)
+c                      - real - Y coordinate of a vertex of a
+c                               discrete area source in grid units
+c                               (i.e., origin at (0.0,0.0))
+c   NVERT2(mxarea) - real     - Number of sides bounding area
+c
+c (NOTE:  The mean x,y for the polygon is computed as vertex NVERT+1)
+c
+c        HTAR2(mxqstep,mxarea) - real     - Effective release height (m)
+c        ELAR2(mxqstep,mxarea) - real     - Elevation of ground (m)
+c        TKAR2(mxqstep,mxarea) - real     - Temperature of release (K)
+c       WEFAR2(mxqstep,mxarea) - real     - Effective rise velocity (m/s)
+c       REFAR2(mxqstep,mxarea) - real     - Effective radius of source (m)
+c       SZ0AR2(mxqstep,mxarea) - real     - Initial sigma-z of source (m)
+c  QAR2(mxspec,mxqstep,mxarea) - real     - Emission rate (g/s) for each
+c                                           pollutant
+c        AREA2(mxqstep,mxarea) - real     - Area of each source (m^2)
+c               NEWAR2(mxarea) - integer  - Number of puffs released by each
+c                                           source during the current step
+c
+c (NOTE:  The initial sigma-y is computed as function of wind direction)
+c
+c
+c ---  Numerical Plume Rise Data ---
+c
+c                         NTR0 - integer  - Default number of points in
+c                                           trajectory arrays
+c
+c
+c ---  Character data ---
+c
+c   CSLST3(mxspec) - char*12    - Species identifiers
+c     CID3(mxarea) - char*16    - Source identifiers
+c BAEMUNIT(mxarea) - char*16    - Emissions units for each source
+c                                 ('g/m2/s'  OR  'g/s')
+c
+c
+c PMAPAR2(mxemdat) - character - Character code for output map projection
+c                                UTM :  Universal Transverse Mercator
+c                                LCC :  Lambert Conformal Conic
+c                                PS  :  Polar Stereographic
+c                                EM  :  Equatorial Mercator
+c                                LAZA:  Lambert Azimuthal Equal Area
+c                                TTM :  Tangential Transverse Mercator
+c UTMHEMAR2(mxemdat)- character - Base hemisphere for UTM projection
+c                                (S=southern, N=northern)
+c DATUMAR2(mxemdat) - character - Datum-Region for grid coordinates
+c DATENAR2(mxemdat) - character - NIMA date for datum parameters
+c                                (MM-DD-YYYY  )
+c XYUNITAR2(mxemdat)- character - Units for coordinates (e.g., KM)
+

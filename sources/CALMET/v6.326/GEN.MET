@@ -1,0 +1,81 @@
+c----------------------------------------------------------------------
+c --- COMMON BLOCK /GEN/ -- General run data                     CALMET
+c----------------------------------------------------------------------
+c
+      logical*4 lcalgrd
+      character*8 axtz
+c
+      common/gen/ibyr,ibmo,ibdy,ibjul,ibhr,ibyrn,ibmon,ibdyn,ibjuln,
+     1 ibhrn,ibsecn,ieyrn,iemon,iedyn,iejuln,iehrn,iesecn,axtz,ibtz,
+     2 irlg,irsublg,nsecdt,nyr,nmo,nday,njul,nhr,nhrind,ndathr,
+     3 nyrb,nmob,ndayb,njulb,nhrb,nsecb,nyre,nmoe,ndaye,njule,nhre,
+     4 nsece,ndathrb,ndathre,irtype,lcalgrd,nendhr,
+     5 itimstep,sinalp(mxnx,mxny,26),sinalpc(mxnx,mxny),mreg
+c
+c --- COMMON BLOCK /GEN/ Variables:
+c             IBYR - integer - Beginning year of run (4 digits)
+c             IBMO - integer - Beginning month of run
+c             IBDY - integer - Beginning day of run
+c            IBJUL - integer - Beginning Julian day of run
+c             IBHR - integer - Beginning hour of run (00-23)
+c            IBYRN - integer - Beginning year of run (4 digits)(explicit)
+c            IBMON - integer - Beginning month of run(4 digits)(explicit)
+c            IBDYN - integer - Beginning day of run(4 digits)(explicit)
+c           IBJULN - integer - Beginning Julian day of run (4 digits)(explicit)
+c            IBHRN - integer - Beginning hour of run (00-23)(4 digits)(explicit)
+c           IBSECN - integer - Beginning second run (00-3600)(4 digits)(explicit)
+c            IEYRN - integer - Beginning year of run (4 digits)(explicit)
+c            IEMON - integer - Beginning month of run(4 digits)(explicit)
+c            IEDYN - integer - Beginning day of run(4 digits)(explicit)
+c           IEJULN - integer - Beginning Julian day of run (4 digits)(explicit)
+c            IEHRN - integer - Beginning hour of run (00-23)(4 digits)(explicit)
+c           IESECN - integer - Beginning second run (00-3600)(4 digits)(explicit)
+c             AXTZ - char*8  - UTC base time zone (UTC+HHMM)
+c             IBTZ - integer - Base time zone 
+c             IRLG - integer - Run length (hours)
+c          IRSUBLG - integer - Run length (sub-hourly timesteps)
+c           NSECDT - integer - Timestep in seconds
+c              NYR - integer - Year of current time step
+c              NMO - integer - Month of current time step
+c             NDAY - integer - Day of current time step
+c             NJUL - integer - Julian day of current time step
+c              NHR - integer - Hour of current time step (00-23)
+c           NHRIND - integer - Array index (1-24) of current hour
+c           NDATHR - integer - Coded integer containing date & hour
+c                              of current time step (YYYYJJJHH)
+c             NYRB - integer - Beginning Year of current time step (explicit)
+c             NMOB - integer - Beginning Month of current time step (explicit)
+c            NDAYB - integer - Beginning Day of current time step (explicit)
+c            NJULB - integer - Beginning Julian day of current time step (explicit)
+c             NHRB - integer - Beginning Hour of current time step (00-23) (explicit)
+C            NSECB - integer - Beginning Second of current timestep (explicit)
+c             NYRE - integer - Ending Year of current time step (explicit)
+c             NMOE - integer - Ending Month of current time step (explicit)
+c            NDAYE - integer - Ending Day of current time step (explicit)
+c            NJULE - integer - Ending Julian day of current time step (explicit)
+c             NHRE - integer - Ending Hour of current time step (00-23) (explicit)
+C            NSECE - integer - Ending Second of current timestep (explicit)
+c          NDATHRB - integer - Coded integer containing beginning date & hour 
+c                              of current time step (YYYYJJJHH) (explicit)
+c          NDATHRE - integer - Coded integer containing ending date & hour 
+c                              of current time step (YYYYJJJHH) (explicit)
+c           IRTYPE - integer - Run type flag
+c                              (0 = Computes wind fields only
+c                               1 = Computes wind fields and
+c                                   micrometeorological variables)
+c          LCALGRD - logical*4 - Flag to control calculation of special
+c                              data fields needed by CALGRID (i.e.,
+c                              3-D W winds and temperatures)
+c           NENDHR - integer - Flag for last hour in the run
+c                              (1 = last hour; 0 = otherwise)
+c         ITIMSTEP - integer - Current timestep
+c SINALP(mxnx,     - real    - Sine of solar elevation angle at each
+c        mxny,26)              gridpoint (hourly values from 23:30 previous day
+c                              to 0:30 next day)
+c SINALPC(mxnx,mxny) - real  - Sine of solar elevation angle at each
+c                              gridpoint at the midpoint of current timestep
+c                              (interpolated from hourly values)
+c             MREG - integer - Regulatory configuration option
+c                              (0 = NO checks are made
+c                               1 = Technical options must conform to
+c                                   USEPA guidance

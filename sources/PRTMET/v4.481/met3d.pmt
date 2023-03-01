@@ -1,0 +1,113 @@
+c----------------------------------------------------------------------
+c --- COMMON BLOCK /MET3D/ -- 3D.DAT header data                 PRTMET
+c---------------------------------------------------------------------- 
+      character*4 utmhem3d
+      character*8 datum3d,map3d
+      character*12 daten3d
+      character*16 cname3d,cver3d
+      character*64 ctitle3d
+      character*132 comm3d
+
+      common/MET3D/IBYRM,IBJULM,IBHRM,IEYRM,IEJULM,IEHRM,NHRSM3D,
+     1             NXMET,NYMET,NZMET,DXMET,X1MET,Y1MET,PTOPMET,
+     2             I13D,J13D,NXP,NYP,NZP,SIGMA(mxnzp),
+     3             XNLAT3D(mxnxp,mxnyp),XELON3D(mxnxp,mxnyp),
+     4             ITE3D(mxnxp,mxnyp),ILU3D(mxnxp,mxnyp),
+     5             feast3D,fnorth3D,iutmzn3D,
+     6             rnlat03D,relon03D,xlat13D,xlat23D,
+     7             IOUTM3D,IMET3D,ISTEPPG,
+     8             NCOMM3D,CNAME3D,CVER3D,CTITLE3D,COMM3D,
+     9             DATUM3D,MAP3D,DATEN3D,utmhem3D
+c
+c --- COMMON BLOCK /MET3D/ Variables:
+c         IBYRM - integer - Year of beginning of data of the MET data
+c        IBJULM - integer - Julian day of the start of the MET data
+c         IBHRM - integer - Starting hour (GMT) of the MET data
+c         IEYRM - integer - Ending year of the MET data
+c        IEJULM - integer - Ending Julian day of the MET data
+c         IEHRM - integer - Ending hour (GMT) of the MET data
+c       NHRSM3D - integer - Number of hours in run
+c         NXMET - integer - Number of X cells in the original MET
+c                           modeling domain
+c         NYMET - integer - Number of Y cells in the original MET
+c                           modeling domain
+c         NZMET - integer - Number of levels in the original MET
+c                           modeling domain
+c         DXMET - real    - Met Grid cell dimension (km)
+c         X1MET - real    - Dot-point X of original Met cell (1,1) (km)
+c         Y1MET - real    - Dot-point Y of original Met cell (1,1) (km)
+c       PTOPMET - real    - Top pressure level (mb) of data in the
+c                           MET file
+c          I13D - integer - X index of the lower left corner of the
+c                           extraction domain
+c          J13D - integer - Y index of the lower left corner of the
+c                           extraction domain
+c           NXP - integer - Number of grid cells in the X direction
+c                           in the extraction domain
+c           NYP - integer - Number of grid cells in the Y direction
+c                           in the extraction domain
+c           NZP - integer - Number of levels in the extraction domain
+c        SIGMA(mxnzp) - real array    - Array of sigma levels defining
+c                                       each of the NZP MET layers
+c XNLAT3D(mxnxp,mxnyp) - real array    - Latitude (deg.) of each MET
+c                                       grid point (positive in NH,
+c                                       negative in SH).
+c XELON3D(mxnxp,mxnyp) - real array    - Longitude (deg.) of each MET
+c                                       grid point (N.B.  MET convention
+c                                       is different from CALMET convention,
+c                                       i.e., positive for Eastern Hemisphere
+c                                       and negative for Western Hemisphere)
+c  ITE3D(mxnxp,mxnyp) - integer array - Terrain elevation (m) of each grid 
+c                                       point in the MET extraction 
+c                                       subdomain
+c  ILU3D(mxnxp,mxnyp) - integer array - Land use code of each grid point
+c                                       in the MET extraction subdomain
+c IUTMZN3D        - integer   - UTM zone for UTM projection
+c FEAST3D  (km)   - real      - False Easting at projection origin
+c FNORTH3D (km)   - real      - False Northing at projection origin
+c RNLAT03D,       - real      - N. latitude & E. longitude of x=0 and y=0
+c RELON03D (deg)                of map projection (Used only if PMAP =
+c                               LCC, PS, EM, TTM or LAZA) 
+c                               NOTE: longitude neg in western hemisphere
+c XLAT13D,        - real      - Matching N. latitude(s) for projection
+c XLAT23D (deg)                 (Used only if PMAP= LCC, PS, or EM)
+c                               LCC :  Projection cone slices through
+c                                      Earth's surface at XLAT1 and XLAT2
+c                               PS  :  Projection plane slices through
+c                                      Earth at XLAT1
+c                               EM  :  Projection cylinder slices through
+c                                      Earth at [+/-] XLAT1
+c             IOUTM3D - integer       - Flag indicating contents of the
+c                                       3D.DAT file
+c              IMET3D - integer       - Flag indicating if MET3D file in 
+c                                       MM5.DAT format (IMET3D=0), 
+c                                       3D.DAT format  (IMET3D=1) (< V2.0)
+c                                       3D.DAT format  (IMET3D=2) (V2.0+)
+c             ISTEPPG - integer       - MM5 Timestep (hr) (default isteppg=1) 
+c             NCOMM3D - integer       - Number of comment lines in 3D.DAT
+c                                       file (used only with 3D.DAT files
+c                                       Version 2.0 or later) 
+c             CNAME3D - character*16  - Dataset name (3D.DAT - used only for
+c                                       3D.DAT Version 2.0 or later)
+c              CVER3D - character*16  - Dataset version (used only for 3D.DAT
+c                                       files Version 2.0 or later)
+c            CTITLE3D - character*64  - Dataset title (used only for 3D.DAT
+c                                       file Version 2.0 or later)
+c              COMM3D - character*132 - Character variable to hold one record 
+c                                       of comments from the 3D.DAT file 
+c                                       (used only for 3D.DAT file Version 2.0 
+c                                       or later)
+c            DATUM3D  - character     - Datum-Region for mesoscale model
+c              MAP3D  - character*4   - Map projection for mesoscale model
+c                                       UTM :  Universal Transverse Mercator
+c                                              (UTMs are unlikely for 3D.DAT)
+c                                       LCC :  Lambert Conformal Conic
+c                                       PS  :  Polar Stereographic
+c                                       EM  :  Equatorial Mercator
+c                                       LAZA:  Lambert Azimuthal Equal Area
+c                                       TTM :  Tangential Transverse Mercator
+c            DATEN3D  - character     - NIMA date for datum parameters
+c                                       (MM-DD-YYYY  )
+c           UTMHEM3D  - character     - Base hemisphere for UTM projection
+c                                       (S=southern, N=northern)
+c                                       (UTMs are unlikely for 3D.DAT)

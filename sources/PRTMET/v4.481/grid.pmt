@@ -1,0 +1,64 @@
+c-----------------------------------------------------------------------
+c --- COMMON BLOCK /GRID/ -- Grid informationfor output data      PRTMET
+c-----------------------------------------------------------------------
+      character*4 utmhem
+      character*8 datum,pmap
+      character*12 daten
+
+      common /GRID/ nx,ny,nz,zface(mxnzp1),delx,xorg,yorg,feast,fnorth,
+     &              iutmzn,rnlat0,relon0,xlat1,xlat2,
+     &              xgkm(mxnx,mxny),ygkm(mxnx,mxny),nbx,nby,nex,ney,
+     &              isub,isp,nspx,nspy,
+     &              pmap,datum,daten,utmhem
+
+c-----------------------------------------------------------------------
+c     DEFINITIONS  [i]=integer   [r]=real   [l]=logical   [c]=character
+c-----------------------------------------------------------------------
+c nx,ny,nz         actual number of cells in x,y (or r,theta), layers[i]
+c zface   (mAGL)   Cell face heights                                [ra]
+c delx        (km) length of side of output grid Cartesian grid cell [r]
+c (x,y)org    (km) reference coordinates of grid origin              [r]
+c xlat1,xlat2(deg) standard latitudes used for Lambert conf. proj.   [r]
+c IUTMZN        - integer   - UTM zone for UTM projection
+c FEAST  (km)   - real      - False Easting at projection origin
+c FNORTH (km)   - real      - False Northing at projection origin
+c RNLAT0,       - real      - N. latitude & E. longitude of x=0 and y=0
+c RELON0 (deg)                of map projection (Used only if PMAP =
+c                             LCC, PS, EM, TTM or LAZA) 
+c                             NOTE: longitude neg in western hemisphere
+c XLAT1,        - real      - Matching N. latitude(s) for projection
+c XLAT2 (deg)                 (Used only if PMAP= LCC, PS, or EM)
+c                             LCC :  Projection cone slices through
+c                                    Earth's surface at XLAT1 and XLAT2
+c                             PS  :  Projection plane slices through
+c                                    Earth at XLAT1
+c                             EM  :  Projection cylinder slices through
+c                                    Earth at [+/-] XLAT1
+c PMAP          - character - Character code for output map projection
+c                             UTM :  Universal Transverse Mercator
+c                             LCC :  Lambert Conformal Conic
+c                             PS  :  Polar Stereographic
+c                             EM  :  Equatorial Mercator
+c                             LAZA:  Lambert Azimuthal Equal Area
+c                             TTM :  Tangential Transverse Mercator
+c UTMHEM        - character - Base hemisphere for UTM projection
+c                             (S=southern, N=northern)
+c DATUM         - character - Datum-Region for grid coordinates
+c DATEN         - character - NIMA date for datum parameters
+c                             (MM-DD-YYYY  )
+c-----------------------------------------------------------------------
+c XGKM  - real array(mxnx,mxny)  - X coord. of gridpoints (km)
+c YGKM  - real array(mxnx,mxny)  - Y coord. of gridpoints (km)
+c NBX   - integer                - X Index of the lower left
+c                                  gridpoint of subdomain to plot
+c NEX   - integer                - X Index of the lower right
+c                                  gridpoint of subdomain to plot
+c NBY   - integer                - Y Index of the lower left
+c                                  gridpoint of subdomain to plot
+c NEY   - integer                - Y Index of the upper left
+c                                  gridpoint of subdomain to plot
+c ISUB  - integer                - Subset of grid? (0:no, 1:yes)
+c ISP   - integer                - Single point?   (0:no, 1:yes)
+c NSPX  - integer                - X-index of single cell
+c NSPY  - integer                - Y-index of single cell
+c-----------------------------------------------------------------------

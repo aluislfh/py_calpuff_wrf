@@ -1,0 +1,55 @@
+Lahey/Fujitsu Fortran 95 Express Release 7.10.02  S/N: 003050432726350
+Copyright (C) 1994-2004 Lahey Computer Systems.  All rights reserved.
+Copyright (C) 1998-2004 FUJITSU LIMITED. All rights reserved.
+Compiling program unit makegeo at line 1:
+Compiling program unit __BLKDT__ at line 201:
+Compiling program unit xtractll at line 249:
+Compiling program unit yr4 at line 254:
+Compiling program unit yr4c at line 305:
+Compiling program unit qayr4 at line 349:
+Compiling program unit julday at line 436:
+Compiling program unit grday at line 501:
+Compiling program unit dedat at line 551:
+Compiling program unit deltt at line 579:
+Compiling program unit incr at line 645:
+Compiling program unit indecr at line 739:
+Compiling program unit incrs at line 818:
+Compiling program unit deltsec at line 885:
+Compiling program unit midnite at line 929:
+Compiling program unit utcbasr at line 998:
+Compiling program unit basrutc at line 1034:
+Compiling program unit filcase at line 1081:
+Compiling program unit readin at line 1155:
+Compiling program unit altonu at line 1788:
+Compiling program unit deblnk at line 2120:
+Compiling program unit deplus at line 2181:
+Compiling program unit tright at line 2237:
+Compiling program unit tleft at line 2315:
+Compiling program unit setvar at line 2394:
+Compiling program unit allcap at line 2476:
+Compiling program unit datetm at line 2528:
+Compiling program unit etime at line 2601:
+Compiling program unit undrflw at line 2622:
+Compiling program unit comline at line 2655:
+Compiling program unit setup at line 253:
+Compiling program unit readcf at line 488:
+Compiling program unit readhd at line 1151:
+Compiling program unit comp at line 1552:
+Compiling program unit wt at line 2140:
+Compiling program unit xtrctx at line 2235:
+Compiling program unit wrrdat at line 2290:
+Compiling program unit wredat at line 2351:
+Compiling program unit out at line 2414:
+Compiling program unit wrt at line 2647:
+Compiling program unit wrt2 at line 2684:
+Compiling program unit lrsame at line 2709:
+Compiling program unit wrthead at line 2756:
+Compiling program unit fin at line 2844:
+Encountered 0 errors, 0 warnings in file makegeo.for.
+Microsoft (R) Incremental Linker Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+LINK : warning LNK4005: no objects used from library c:\LF9571\Bin\..\lib\fj90b.lib
+LINK : warning LNK4005: no objects used from library c:\LF9571\Bin\..\lib\advapi32.lib
+LINK : warning LNK4005: no objects used from library c:\LF9571\Bin\..\lib\uuid.lib
+Compiling file makegeo.for.

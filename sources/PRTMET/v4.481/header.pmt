@@ -1,0 +1,36 @@
+c-----------------------------------------------------------------------
+c --- COMMON BLOCK /HEADER/ -- Selected CALMET header             PRTMET
+c-----------------------------------------------------------------------
+
+      logical lcalgrd
+      character*16 dataver
+
+      common /HEADER/ irtype,irlg,nxm,nym,nzm,nssta,nusta,npsta,
+     &                ifilver,i2dmet,itime,jbtz,lcalgrd,dataver
+
+c-----------------------------------------------------------------------
+c              IRLG - integer    - CALMET run length (hours)
+c            IRTYPE - integer    - CALMET run type
+c                                  (0:only winds, 1:winds and micromet)
+c               NXM - integer    - Number of CALMET grid points in
+c                                  X direction
+c               NYM - integer    - Number of CALMET grid points in
+c                                  Y direction
+c               NZM - integer    - Number of CALMET vertical levels
+c             NSSTA - integer    - Number of surface stations
+c             NPSTA - integer    - Number of precipitation stations
+c             NUSTA - integer    - Number of upper-air stations
+c           IFILVER - integer    - CALMET.DAT file version (format)
+c                                   0: Older than version 2.0
+c                                   1: Version 2.0 (with NOOBS 2-D sfc
+c                                      met and CALMET control file image
+c            I2DMET - integer    - Same as IFILVER
+c             ITIME - integer    - Time-mark flag for CALMET.DAT file
+c                                   0: end-time (no seconds)
+c                                   1: begin-time / end-time
+c              JBTZ - integer    - CALMET base time zone
+c           LCALGRD - logical    - Flag for set of met fields
+c                                  (T: full set for CALGRID & CALMET
+c                                   F: partial)
+c           DATAVER - char*16    - CALMET.DAT version number
+c-----------------------------------------------------------------------

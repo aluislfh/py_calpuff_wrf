@@ -1,0 +1,568 @@
+
+
+
+                          PRTMET OUTPUT SUMMARY
+                   VERSION:  4.481        LEVEL:  080407      
+
+
+
+ 
+ -------------------------------------------------
+ NOTICE: Starting year in control file sets the
+         expected century for the simulation.  All
+         YY years are converted to YYYY years in
+         the range:  1940 2039
+ -------------------------------------------------
+ 
+ 
+ --------------------------
+     SETUP Information
+ --------------------------
+ 
+ 
+ Control File Used -----
+ prtmet.inp                                                                                                                          
+ 
+ Input MET File    -----
+metdat  : ..\calpuff\calmet.dat                                                                                                               
+ Output List File  -----
+runlst  : prtmet.lst                                                                                                                          
+ Domain Plot Files -----
+terrain elevations : qaterr.grd                                                                                                                          
+land use           : qaluse.grd                                                                                                                          
+surface roughness  : qaz0.grd                                                                                                                            
+leaf area index    : qalai.grd                                                                                                                           
+surface stations   : qassta.dat                                                                                                                          
+precip. stations   : qapsta.dat                                                                                                                          
+upper-air stations : qausta.dat                                                                                                                          
+met grid           : qametg.bna                                                                                                                          
+land use color     : luse.clr                                                                                                                            
+PGT Class color    : pgt.clr                                                                                                                             
+ 
+ Processing Options -----
+ 
+                                  Beginning year             1990
+                                  Beginning month               1
+                                  Beginning day                 9
+                                  Beginning Julian day          9
+                                  Beginning time (hour)         4
+                                  Beginning time (second)       0
+                                  Ending year                1990
+                                  Ending month                  1
+                                  Ending day                    9
+                                  Ending Julian day             9
+                                  Ending time (hour)            8
+                                  Ending time (second)          0
+                                  Print interval (timesteps)    1
+ 
+                                  Beginning X point            28
+                                  Beginning Y point            48
+                                  Ending X point               34
+                                  Ending Y point               54
+ 
+                                  For 3D.DAT file:           
+                                  Time interval (sec)        3600
+                                  Timestamp mode                0
+                                     (time period from file) 
+ 
+                 Display X-Y coordinates of surface sta. ?   F
+                 Display X-Y coordinates of upper air sta. ? F
+                 Display X-Y coordinates of precip. sta. ?   F
+                 Display nearest surface station array ?     F
+                 Display surface roughness length ?          F     Fixed format ?   0
+                 Display land use categories ?               F     Fixed format ?   0
+                 Display terrain elevations ?                T     Fixed format ?   0
+                 Display leaf area index ?                   F     Fixed format ?   0
+ 
+                Control variables for printing of 3-D fields.
+                        LEVEL         U,V        W     TEMP ?
+                          1            0         0       0
+                          2            0         0       0
+                          3            1         0       0
+                          4            0         0       0
+                          5            0         0       0
+                          6            0         0       0
+                          7            0         0       0
+                          8            0         0       0
+                          9            0         0       0
+                         10            0         0       0
+                         11            0         0       0
+                         12            0         0       0
+                         13            0         0       0
+                         14            0         0       0
+                         15            0         0       0
+                         16            0         0       0
+                         17            0         0       0
+                         18            0         0       0
+                         19            0         0       0
+                         20            0         0       0
+                         21            0         0       0
+                         22            0         0       0
+                         23            0         0       0
+                         24            0         0       0
+                         25            0         0       0
+                         26            0         0       0
+                         27            0         0       0
+                         28            0         0       0
+                         29            0         0       0
+                         30            0         0       0
+                         31            0         0       0
+                         32            0         0       0
+                         33            0         0       0
+                         34            0         0       0
+                         35            0         0       0
+                         36            0         0       0
+                         37            0         0       0
+                         38            0         0       0
+                         39            0         0       0
+                         40            0         0       0
+                         41            0         0       0
+                         42            0         0       0
+                         43            0         0       0
+                         44            0         0       0
+                         45            0         0       0
+                         46            0         0       0
+                         47            0         0       0
+                         48            0         0       0
+                         49            0         0       0
+                         50            0         0       0
+ 
+                 Wind components (U, V) converted to WS, WD ?   1
+                 Display wind field in fixed format ?           1
+ 
+            Multiplicative factor for wind units:         1.0000
+         (If the factor is 1.0 then units will remain in m/s)
+ 
+                 Display PGT stability class ?               F     Fixed format ?   0
+                 Display friction velocity ?                 F     Fixed format ?   0
+                 Display Monin-Obukhov length ?              F     Fixed format ?   0
+                 Display mixing height ?                     T     Fixed format ?   0
+                 Display convective velocity scale ?         F     Fixed format ?   0
+                 Display precipitation rate ?                F     Fixed format ?   0
+ 
+                 Display surface met. station variables ?    F
+ 
+ 
+ Snapshot Options -----
+ 
+ Automatic snapshot files selected:
+    Wind Vectors  (*.VEC)         F    (MVECT = 0)
+       Stepping Index             0    (automatic)
+    Temperature   (*.DEG)         F
+    Precipitation (*.PRC)         F
+    Mixing Height (*.MIX)         F
+    PGT Stability (*.PGT)         F
+ 
+    All snapshot files are ASCII? T
+ 
+                    Control variables for ploting 3-D fields.
+                        LEVEL        WIND      TEMP ?        
+                          1            1         1
+                          2            0         0
+                          3            0         0
+                          4            0         0
+                          5            0         0
+                          6            0         0
+                          7            0         0
+                          8            0         0
+                          9            0         0
+                         10            0         0
+                         11            0         0
+                         12            0         0
+                         13            0         0
+                         14            0         0
+                         15            0         0
+                         16            0         0
+                         17            0         0
+                         18            0         0
+                         19            0         0
+                         20            0         0
+                         21            0         0
+                         22            0         0
+                         23            0         0
+                         24            0         0
+                         25            0         0
+                         26            0         0
+                         27            0         0
+                         28            0         0
+                         29            0         0
+                         30            0         0
+                         31            0         0
+                         32            0         0
+                         33            0         0
+                         34            0         0
+                         35            0         0
+                         36            0         0
+                         37            0         0
+                         38            0         0
+                         39            0         0
+                         40            0         0
+                         41            0         0
+                         42            0         0
+                         43            0         0
+                         44            0         0
+                         45            0         0
+                         46            0         0
+                         47            0         0
+                         48            0         0
+                         49            0         0
+                         50            0         0
+ 
+ Number of specific snapshot files: 0
+ 
+ Average Field Options -----
+ 
+ Number of average field files: 0
+
+
+ ----------------------------------------------------------------------------------------------------------------------------------
+ ----------------------------------------------------------------------------------------------------------------------------------
+
+
+  Data read from header records of CALMET file: 
+ ..\calpuff\calmet.dat                                                                                                               
+ 
+CALMET.DAT      2.1             No-Obs file structure with embedded control file                
+ 
+ Internal Coordinate Transformations  ---  COORDLIB   Version: 1.99   Level: 0709
+ CALMET.INP      2.1             Hour Start and End Times with Seconds           
+ Example CALMET simulation (not intended as a guide to option selections)        
+
+Produced by CALMET Version: 6.326  Level: 080709                                
+ 
+  Input Group #0 parameters ---
+  NUSTA   =  3
+  NOWSTA  =  1
+ 
+  Input Group #1 parameters ---
+  IBYR    =  1990
+  IBMO    =  1
+  IBDY    =  9
+  IBHR    =  4
+  IBSEC   =  0
+  IEYR    =  1990
+  IEMO    =  1
+  IEDY    =  9
+  IEHR    =  8
+  IESEC   =  0
+  AXTZ    = UTC-0500
+  IBTZ    =  5
+  IRLG    =  4
+  IRTYPE  =  1
+  LCALGRD =  T
+ 
+  Input Group #2 parameters ---
+  PMAP    = UTM     
+  DATUM   = NAS-C   
+  NIMADATE= 02-21-2003  
+  FEAST   =  0.00000000E+00
+  FNORTH  =  0.00000000E+00
+  IUTMZN  =  19
+  UTMHEM  = N   
+  NX      =  99
+  NY      =  99
+  DGRID   =  1000.00000
+  XORIGR  =  310000.000
+  YORIGR  =  4820000.00
+  NZ      =  10
+ ZFACE  =     0.000,    20.000,    40.000,    80.000,   160.000,   300.000,   600.000,  1000.000,  1500.000,  2200.000, 
+ 3000.000, 
+ 
+  Land Use parameters from GEO.DAT ---
+  NLU     =  14
+  IWAT1   =  50
+  IWAT2   =  55
+ 
+  Input Group #4 parameters ---
+  NSSTA   =  5
+  NPSTA   =  16
+ 
+  Input Group #5 parameters ---
+  IWFCOD  =  1
+
+ Terrain heights (m)             ELEV    
+
+ Multiply all values by 10 **  -1
+
+  54 I 1365  1372  1398  1876  1878  1492  1442
+     I    +     +     +     +     +     +     +
+  53 I 1533  1502  1665  1808  1757  1497  1344
+     I    +     +     +     +     +     +     +
+  52 I 1764  1566  1624  1817  1804  1535  1335
+     I    +     +     +     +     +     +     +
+  51 I 1961  1822  1663  1570  1548  1601  1391
+     I    +     +     +     +     +     +     +
+  50 I 1915  2087  1861  1587  1523  1498  1347
+     I    +     +     +     +     +     +     +
+  49 I 2109  2806  2808  1892  1542  1727  1748
+     I    +     +     +     +     +     +     +
+  48 I 2253  3474  3649  2477  1825  1754  1766
+     I    +     +     +     +     +     +     +
+     -----------------------------------------
+         28    29    30    31    32    33    34
+
+
+ ----------------------------------------------------------------------------------------------------------------------------------
+ ----------------------------------------------------------------------------------------------------------------------------------
+
+
+ 
+  No W levels were selected, therefore no W data will be displayed.
+ 
+  No temperature levels were selected, therefore no temperature data will be displayed.
+
+ Wind Speed (m/s) -- Level:   3            Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  4  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  4  second:3600
+
+  54 I 3.0  3.0  2.9  2.8  2.9  3.0  3.0
+     I   +    +    +    +    +    +    +
+  53 I 3.0  2.9  2.6  2.4  2.7  2.9  3.0
+     I   +    +    +    +    +    +    +
+  52 I 2.9  2.8  2.4  2.3  2.6  2.9  3.0
+     I   +    +    +    +    +    +    +
+  51 I 2.8  2.8  2.6  2.6  2.7  2.9  2.9
+     I   +    +    +    +    +    +    +
+  50 I 2.8  2.8  2.8  2.8  2.9  2.9  2.9
+     I   +    +    +    +    +    +    +
+  49 I 2.7  2.8  2.9  2.9  2.9  2.8  2.7
+     I   +    +    +    +    +    +    +
+  48 I 2.6  2.6  2.8  2.9  2.8  2.7  2.6
+     I   +    +    +    +    +    +    +
+     ----------------------------------
+        28   29   30   31   32   33   34
+
+ Wind Direction (deg.) -- Level:   3       Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  4  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  4  second:3600
+
+  54 I233. 229. 223. 226. 233. 236. 238.
+     I   +    +    +    +    +    +    +
+  53 I230. 227. 220. 223. 233. 236. 237.
+     I   +    +    +    +    +    +    +
+  52 I225. 226. 226. 235. 239. 238. 238.
+     I   +    +    +    +    +    +    +
+  51 I218. 227. 232. 243. 244. 240. 238.
+     I   +    +    +    +    +    +    +
+  50 I213. 227. 233. 240. 241. 239. 237.
+     I   +    +    +    +    +    +    +
+  49 I214. 228. 234. 237. 238. 238. 239.
+     I   +    +    +    +    +    +    +
+  48 I220. 233. 237. 237. 239. 243. 249.
+     I   +    +    +    +    +    +    +
+     ----------------------------------
+        28   29   30   31   32   33   34
+
+ Mixing height (m)                         Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  4  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  4  second:3600
+
+ Multiply all values by 10 **  -1
+
+  54 I 1567  1596  1488  1488  1740  2015  2098
+     I    +     +     +     +     +     +     +
+  53 I 1632  1632  1454  1412  1629  1878  1975
+     I    +     +     +     +     +     +     +
+  52 I 1629  1692  1514  1393  1536  1592  1660
+     I    +     +     +     +     +     +     +
+  51 I 1524  1701  1700  1565  1508  1612  1704
+     I    +     +     +     +     +     +     +
+  50 I 1361  1529  1708  1766  1624  1566  1520
+     I    +     +     +     +     +     +     +
+  49 I 1224  1242  1396  1628  1644  1439  1210
+     I    +     +     +     +     +     +     +
+  48 I 1006  1041  1121  1374  1551  1361  1245
+     I    +     +     +     +     +     +     +
+     -----------------------------------------
+         28    29    30    31    32    33    34
+
+ Wind Speed (m/s) -- Level:   3            Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  5  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  5  second:3600
+
+  54 I 3.0  2.9  2.8  2.7  2.9  2.9  2.9
+     I   +    +    +    +    +    +    +
+  53 I 2.9  2.8  2.6  2.4  2.7  2.9  3.0
+     I   +    +    +    +    +    +    +
+  52 I 2.9  2.8  2.4  2.2  2.6  2.9  2.9
+     I   +    +    +    +    +    +    +
+  51 I 2.8  2.8  2.6  2.5  2.7  2.9  2.9
+     I   +    +    +    +    +    +    +
+  50 I 2.8  2.8  2.9  2.8  2.9  2.9  2.9
+     I   +    +    +    +    +    +    +
+  49 I 2.8  2.8  2.9  2.9  2.9  2.8  2.7
+     I   +    +    +    +    +    +    +
+  48 I 2.7  2.7  2.8  2.9  2.9  2.7  2.6
+     I   +    +    +    +    +    +    +
+     ----------------------------------
+        28   29   30   31   32   33   34
+
+ Wind Direction (deg.) -- Level:   3       Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  5  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  5  second:3600
+
+  54 I232. 228. 222. 225. 232. 235. 237.
+     I   +    +    +    +    +    +    +
+  53 I229. 226. 219. 222. 232. 235. 236.
+     I   +    +    +    +    +    +    +
+  52 I224. 225. 225. 234. 238. 238. 237.
+     I   +    +    +    +    +    +    +
+  51 I217. 226. 232. 242. 243. 239. 237.
+     I   +    +    +    +    +    +    +
+  50 I212. 225. 232. 239. 240. 238. 237.
+     I   +    +    +    +    +    +    +
+  49 I212. 225. 232. 236. 237. 238. 238.
+     I   +    +    +    +    +    +    +
+  48 I214. 224. 232. 235. 238. 243. 248.
+     I   +    +    +    +    +    +    +
+     ----------------------------------
+        28   29   30   31   32   33   34
+
+ Mixing height (m)                         Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  5  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  5  second:3600
+
+ Multiply all values by 10 **  -1
+
+  54 I 1364  1394  1286  1283  1502  1737  1830
+     I    +     +     +     +     +     +     +
+  53 I 1451  1441  1294  1245  1412  1624  1701
+     I    +     +     +     +     +     +     +
+  52 I 1465  1515  1354  1234  1337  1382  1442
+     I    +     +     +     +     +     +     +
+  51 I 1380  1539  1524  1382  1310  1412  1503
+     I    +     +     +     +     +     +     +
+  50 I 1239  1397  1549  1589  1449  1400  1365
+     I    +     +     +     +     +     +     +
+  49 I 1131  1148  1279  1483  1496  1312  1123
+     I    +     +     +     +     +     +     +
+  48 I  960   989  1034  1263  1424  1257  1144
+     I    +     +     +     +     +     +     +
+     -----------------------------------------
+         28    29    30    31    32    33    34
+
+ Wind Speed (m/s) -- Level:   3            Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  6  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  6  second:3600
+
+  54 I 3.0  3.0  2.9  2.8  2.9  3.0  3.0
+     I   +    +    +    +    +    +    +
+  53 I 3.0  2.9  2.6  2.4  2.7  2.9  3.0
+     I   +    +    +    +    +    +    +
+  52 I 2.9  2.8  2.4  2.3  2.7  2.9  3.0
+     I   +    +    +    +    +    +    +
+  51 I 2.9  2.8  2.7  2.6  2.8  2.9  2.9
+     I   +    +    +    +    +    +    +
+  50 I 2.8  2.9  2.9  2.9  2.9  2.9  2.9
+     I   +    +    +    +    +    +    +
+  49 I 2.8  2.8  2.9  2.9  2.9  2.9  2.7
+     I   +    +    +    +    +    +    +
+  48 I 2.7  2.7  2.8  2.9  2.9  2.8  2.6
+     I   +    +    +    +    +    +    +
+     ----------------------------------
+        28   29   30   31   32   33   34
+
+ Wind Direction (deg.) -- Level:   3       Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  6  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  6  second:3600
+
+  54 I231. 227. 222. 225. 231. 234. 236.
+     I   +    +    +    +    +    +    +
+  53 I228. 225. 219. 222. 231. 234. 235.
+     I   +    +    +    +    +    +    +
+  52 I223. 225. 225. 234. 238. 237. 236.
+     I   +    +    +    +    +    +    +
+  51 I217. 225. 231. 242. 243. 238. 236.
+     I   +    +    +    +    +    +    +
+  50 I212. 225. 232. 238. 240. 237. 236.
+     I   +    +    +    +    +    +    +
+  49 I212. 224. 231. 235. 237. 237. 238.
+     I   +    +    +    +    +    +    +
+  48 I214. 223. 231. 234. 237. 242. 248.
+     I   +    +    +    +    +    +    +
+     ----------------------------------
+        28   29   30   31   32   33   34
+
+ Mixing height (m)                         Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  6  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  6  second:3600
+
+ Multiply all values by 10 **  -1
+
+  54 I 1416  1450  1370  1393  1543  1763  1854
+     I    +     +     +     +     +     +     +
+  53 I 1504  1503  1343  1272  1425  1639  1716
+     I    +     +     +     +     +     +     +
+  52 I 1517  1569  1394  1306  1354  1392  1457
+     I    +     +     +     +     +     +     +
+  51 I 1431  1594  1576  1420  1325  1427  1521
+     I    +     +     +     +     +     +     +
+  50 I 1286  1451  1604  1627  1478  1424  1388
+     I    +     +     +     +     +     +     +
+  49 I 1172  1198  1313  1515  1524  1337  1141
+     I    +     +     +     +     +     +     +
+  48 I  985  1006  1062  1277  1445  1268  1163
+     I    +     +     +     +     +     +     +
+     -----------------------------------------
+         28    29    30    31    32    33    34
+
+ Wind Speed (m/s) -- Level:   3            Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  7  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  7  second:3600
+
+  54 I 3.0  2.9  2.8  2.7  2.8  2.9  2.9
+     I   +    +    +    +    +    +    +
+  53 I 2.9  2.8  2.6  2.4  2.7  2.9  2.9
+     I   +    +    +    +    +    +    +
+  52 I 2.9  2.7  2.4  2.2  2.6  2.9  2.9
+     I   +    +    +    +    +    +    +
+  51 I 2.8  2.8  2.6  2.5  2.7  2.9  2.9
+     I   +    +    +    +    +    +    +
+  50 I 2.8  2.8  2.8  2.8  2.8  2.9  2.9
+     I   +    +    +    +    +    +    +
+  49 I 2.8  2.8  2.9  2.9  2.9  2.8  2.7
+     I   +    +    +    +    +    +    +
+  48 I 2.7  2.7  2.8  2.9  2.9  2.7  2.6
+     I   +    +    +    +    +    +    +
+     ----------------------------------
+        28   29   30   31   32   33   34
+
+ Wind Direction (deg.) -- Level:   3       Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  7  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  7  second:3600
+
+  54 I231. 227. 222. 225. 231. 234. 236.
+     I   +    +    +    +    +    +    +
+  53 I228. 225. 219. 222. 231. 234. 235.
+     I   +    +    +    +    +    +    +
+  52 I224. 225. 225. 234. 238. 237. 236.
+     I   +    +    +    +    +    +    +
+  51 I217. 225. 231. 242. 243. 239. 236.
+     I   +    +    +    +    +    +    +
+  50 I212. 225. 232. 238. 240. 237. 236.
+     I   +    +    +    +    +    +    +
+  49 I212. 224. 232. 235. 237. 237. 238.
+     I   +    +    +    +    +    +    +
+  48 I214. 224. 231. 235. 237. 242. 248.
+     I   +    +    +    +    +    +    +
+     ----------------------------------
+        28   29   30   31   32   33   34
+
+ Mixing height (m)                         Beginning year: 1990  month:  1  day:  9  Julian day:   9  hour:  7  second:   0
+                                              Ending year: 1990  month:  1  day:  9  Julian day:   9  hour:  7  second:3600
+
+ Multiply all values by 10 **  -1
+
+  54 I 1210  1248  1185  1217  1357  1560  1654
+     I    +     +     +     +     +     +     +
+  53 I 1287  1298  1176  1128  1244  1443  1525
+     I    +     +     +     +     +     +     +
+  52 I 1298  1355  1227  1150  1182  1221  1291
+     I    +     +     +     +     +     +     +
+  51 I 1224  1383  1371  1247  1169  1246  1360
+     I    +     +     +     +     +     +     +
+  50 I 1112  1264  1409  1430  1298  1262  1243
+     I    +     +     +     +     +     +     +
+  49 I 1032  1051  1153  1336  1352  1186  1031
+     I    +     +     +     +     +     +     +
+  48 I  886   907   915  1123  1282  1134  1046
+     I    +     +     +     +     +     +     +
+     -----------------------------------------
+         28    29    30    31    32    33    34
+
+
+  End of run -- Clock time: 16:08:40
+                      Date: 08-04-2008
+
+        Elapsed Clock Time:        0.0 (seconds)
+
+                  CPU Time:        0.0 (seconds)

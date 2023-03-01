@@ -1,0 +1,387 @@
+PRTMET.INP      2.1             Hour Start and End Times with Seconds
+-------------------------------------------------------------------------------
+
+                 PRTMET PROCESSOR CONTROL FILE
+                 -----------------------------
+
+  PRTMET reads the binary meteorological data file produced by CALMET
+  (CALMET.DAT), and reports selected information in formats amenable to
+  quantitative analysis, QA review, or visualization.
+
+-------------------------------------------------------------------------------
+                                        a
+INPUT GROUP: 0 -- Input and Output Files
+--------------
+
+     Default Name  Type          File Name
+     ------------  ----          ---------
+     CALMET.DAT    input     ! METDAT  = calmet.dat  !
+     PRTMET.LST    output    ! RUNLST  = prtmet1.lst      !
+     PRTTIME.DAT   output    * PRTTIME  = Prttime.dat      *
+
+     Note: PRTTIME is a time-series file created only if a single point is
+     selected for processing/printing in Input Group 1.  2D and 3D variables
+     specified in Input Group 2 are written each timestep for this point.
+
+     All file names will be converted to lower case if LCFILES = T
+     Otherwise, if LCFILES = F, file names will be converted to UPPER CASE
+     (LCFILES)                  Default: T      ! LCFILES = F     !
+        T = lower case
+        F = UPPER CASE
+   
+     NOTE: File/path names can be up to 132 characters in length
+
+-------------
+   a
+     Additional output files may be defined in Input Groups 3 and 4 when 
+     specific snapshot plots or average field plots are requested.
+
+!END!
+
+--------------------------------------------------------------------------------
+
+INPUT GROUP: 1 -- Run control parameters
+--------------
+
+--- Processing Period ---
+
+     Starting date:   Year (IBYR) -- No default       ! IBYR  = 2008  !
+                     Month (IBMO) -- No default       ! IBMO  = 08  !
+                       Day (IBDY) -- No default       ! IBDY  = 3  !
+                      Hour (IBHR) -- No default       ! IBHR  = 0  !
+                   Second (IBSEC) -- No default       ! IBSEC = 0  !
+
+     Ending date:     Year (IEYR) -- No default       ! IEYR  = 2008  !
+                     Month (IEMO) -- No default       ! IEMO  = 08  !
+                       Day (IEDY) -- No default       ! IEDY  = 4  !
+                      Hour (IEHR) -- No default       ! IEHR  = 0  !
+                   Second (IESEC) -- No default       ! IESEC = 0  !
+
+ ---------------
+     NOTE:  The date/time is in the base time zone of the CALMET run.
+
+
+--- Processing Options ---
+
+     Time interval between printed/plotted fields:
+     (number of CALMET output timesteps)
+     Enter 1 to print every timestep, enter 2 to
+     print every second timestep, etc.
+     (ICHR)                     Default: 1      ! ICHR = 1  !
+
+     Portion of meteorological grid to print/plot
+     Enter beginning (NBX, NBY) and ending (NEX, NEY)
+     cell indices (enter 0 to indicate entire grid).
+     (NBX)                      Default: 0      ! NBX = 0  !
+     (NBY)                      Default: 0      ! NBY = 0  !
+     (NEX)                      Default: 0      ! NEX = 0  !
+     (NEY)                      Default: 0      ! NEY = 0  !
+
+     Note: If only one gridpoint is specified, variables selected in
+     Input Group 2 are written to a separate time-series output file
+     defined in Input Group 0.
+
+!END!
+
+--------------------------------------------------------------------------------
+
+INPUT GROUP: 2 -- Listfile Output Options
+--------------
+
+-------------
+Subgroup (2a)
+-------------
+
+     Print CALMET header run variables
+     (e.g., grid definition, ...)?
+     (LHDV)                     Default: T      ! LHDV = f  !
+
+     Print full CALMET control file image?
+     (LMETCF)                   Default: F      ! LMETCF = F  !
+
+     Print meteorological station (X, Y)
+     coordinates?
+     (LSFC)  surface            Default: F      ! LSFC = F  !
+     (LUPC)  upper air          Default: F      ! LUPC = F  !
+     (LPRC)  precipitation      Default: F      ! LPRC = F  !
+
+     Print nearest surface station ID for
+     each grid point?
+     (LNEARS)                   Default: F      ! LNEARS = F  !
+
+     Print surface meteorological data?
+     (temp, rho, SW rad, rh, precip code)
+     (LSURF)                    Default: F      ! LSURF = F  !
+
+     Print 2-D gridded domain characteristics?
+     (LLI)  Leaf Area Index     Default: F      ! LLI = F  !
+     (LLU)  Landuse             Default: F      ! LLU = F  !
+     (LTE)  Terrain             Default: F      ! LTE = T  !
+     (LZ0)  Roughness           Default: F      ! LZ0 = F  !
+
+     Format used when printing gridded domain characteristics
+     (used only if corresponding LLI,LLU,LTE,LZ0 is true)
+        0 = use self-scaling exponential format
+        1 = use fixed decimal format
+     (FLI)  Leaf Area Index     Default: 0      ! FLI = 0  !
+     (FLU)  Landuse             Default: 0      ! FLU = 0  !
+     (FTE)  Terrain             Default: 0      ! FTE = 0  !
+     (FZ0)  Roughness           Default: 0      ! FZ0 = 0  !
+
+     Print 2-D gridded meteorological data?
+     (LSTAB)  PG stability      Default: F      ! LSTAB = F  !
+     (LUSTR)  u-star            Default: F      ! LUSTR = F  !
+     (LMOLN)  Monin-Obukhov L   Default: F      ! LMOLN = F  !
+     (LWSTR)  w-star            Default: F      ! LWSTR = F  !
+     (LMXHT)  mixing ht         Default: F      ! LMXHT = T  !
+     (LPRAT)  precip. rate      Default: F      ! LPRAT = F  !
+
+     Format used when printing 2-D gridded meteorological data
+     (used only if corresponding LSTAB,LUSTR,LMOLN,LWSTR,LMXHT,LPRAT
+      is true)
+        0 = use self-scaling exponential format
+        1 = use fixed decimal format
+     (FSTAB)  PG stability      Default: 0      ! FSTAB = 0  !
+     (FUSTR)  u-star            Default: 0      ! FUSTR = 0  !
+     (FMOLN)  Monin-Obukhov L   Default: 0      ! FMOLN = 0  !
+     (FWSTR)  w-star            Default: 0      ! FWSTR = 0  !
+     (FMXHT)  mixing ht         Default: 0      ! FMXHT = 0  !
+     (FPRAT)  precip. rate      Default: 0      ! FPRAT = 0  !
+
+     Present wind data as speed and direction?
+     (IPWS)                     Default: 1      ! IPWS = 1  !
+        0 = present as U,V components
+        1 = present as wind speed, direction
+
+     Scale factor to convert wind speed from m/s to other units
+     (WSFAC)                    Default: 1.0    ! WSFAC = 1.0  !
+        1.0   = m/s
+        1.944 = to knots
+        2.237 = to mph
+
+     Format used when printing wind speeds
+        0 = use self-scaling exponential format
+        1 = use fixed decimal format
+     (FWS)                      Default: 0      ! FWS = 1  !
+
+     Number of layers of 3-D meteorological data printed
+     (Identify data for each layer in Subgroup 2b)
+     (N3D)                      Default: 0      ! N3D = 0  !
+
+!END!
+
+-------------
+Subgroup (2b)
+-------------
+                                                    a,b
+           DATA FOR EACH LAYER PRINTED (N3D entries)
+           -----------------------------------------
+                     c
+                  U,V
+                   or
+       LAYER     WS,WD       W    TEMPERATURE
+       -----     -----     -----     -----
+* X =    3 ,        1 ,        0 ,        0       *  *END*
+
+-------------
+    a
+     0 = do not print this variable for this layer
+     1 = print this variable for this level
+    b
+     Each line is treated as a separate input subgroup and therefore
+     must end with an input group terminator.
+    c
+     U,V or WS,WD format is selected by variable IPWS
+
+--------------------------------------------------------------------------------
+
+INPUT GROUP: 3 -- Snapshot Output Plotfiles
+--------------
+
+-------------
+Subgroup (3a)
+-------------
+
+     Automatically generated snapshot plotfiles
+     ------------------------------------------
+
+     Snapshot plotfiles can be created automatically for each CALMET layer, and
+     each timestep in the processing period identified in Group 1.  The plotfiles
+     are compatible with the SURFER graphics system and are given names that
+     include the date-time and model layer.  Filenames are of the form
+
+     yyyy_Mmm_Ddd_hhmm(UTC+hhmm)_Lzz_tMIN.* or
+     yyyy_Mmm_Ddd_hhmm(UTC+hhmm)_Lzz_tHR.*  where
+
+     yyyy       = Year (Base Time Zone)
+     mm         = Month (Base Time Zone)
+     dd         = Day (Base Time Zone)
+     hhmm       = Start of Timestep: Hour & Minute (Base Time Zone)
+     (UTC+hhmm) = Base Time Zone definition (e.g. EST = UTC-0500)
+     zz         = CALMET layer (00 for 2D variables)
+     t          = Length of timestep (e.g., 1HR or 5MIN or 30MIN etc.)
+
+
+     Create automatic plotfiles for each timestep?
+        (LVECT)  Wind Vectors  (*.wsp,*.wdr)    Default: F      ! LVECT = F  !
+                     -- or --  (*.usp,*.vsp)
+                     -- or --  (*.vec)
+        (LTEMP)  Temperature   (*.deg)          Default: F      ! LTEMP = F  !
+        (LPREC)  Precipitation (*.prc)          Default: F      ! LPREC = T  !
+        (LMIXH)  Mixing Height (*.mix)          Default: F      ! LMIXH = F  !
+        (LIPGT)  PGT Stability (*.pgt)          Default: F      ! LIPGT = F  !
+
+     Force snapshot files to be ASCII (text), otherwise files
+     containing non-integer data will be written as BINARY
+     to reduce file size.
+     (LSNAPTXT)                                 Default: T      ! LSNAPTXT = T  !
+
+     Type of file created for the Wind Vector option
+     (MVECT)                                    Default: 0      ! MVECT = 1  !
+        0   = *.vec        (SURFER POST file)
+        1   = *.wsp, *.wdr (speed and direction SURFER GRD files)
+        2   = *.usp, *.vsp (U and V speed SURFER GRD files)
+
+     Number of layers of 3-D meteorological data written to plot files.
+     (Identify layers in Subgroup 3b)
+     If set to 0, only layer 1 is provided.
+     (NZPLOT)                                   Default: 0      ! NZPLOT = 0 !
+
+     Explicitly defined snapshot plotfiles
+     -------------------------------------
+
+     Specific snapshot plotfiles can also be created for selected CALMET layers
+     and timesteps in the processing period identified in Group 1.  Plotfiles
+     are compatible with the SURFER graphics system and are given names by the
+     user.
+
+     Number of snapshot plotfiles explicitly defined in Subgroup 3c
+     (NSNAP)                                    Default: 0      ! NSNAP = 3  !
+
+
+!END!
+
+-------------
+Subgroup (3b)
+-------------
+                                                        a,b
+           LAYERS AUTOMATICALLY PLOTTED (NZPLOT entries)
+           ---------------------------------------------
+
+       LAYER     WIND     TEMPERATURE
+       -----     ----     -----------
+* X =    1,        1,          1      *  *END*
+* X =    4,        1,          1      *  *END*
+* X =    8,        1,          1      *  *END*
+* X =   11,        1,          1      *  *END*
+-------------
+    a
+     0 = do not print this variable for this layer
+     1 = print this variable for this level
+    b
+     Each line is treated as a separate input subgroup and therefore
+     must end with an input group terminator.
+
+
+-------------
+Subgroup (3c)
+-------------
+                                                              a,b
+           EXPLICIT SNAPSHOT DEFINITION (NSNAP 2-line entries)
+           ---------------------------------------------------
+
+             Layer  Timestep (position in processing period)
+             -----  --------
+
+! FILESNAP =   PREC1.grd  !
+! PREC     =   1,     18    !  !END!
+! FILESNAP =   PREC8.grd  !
+! PREC     =   1,     18    !  !END!
+! FILESNAP =   PREC11.grd  !
+! PREC     =   1,     18    !  !END!
+
+
+
+-------------
+    a
+     Enter information for each of the NSNAP plotfiles in 2-line groups.
+     One line identifies the filename (FILESNAP = outfile), and the
+     other line defines the type of snapshot and the layer & timestep.
+     The type (e.g., MIXH =) must be one of the following:
+         VECT = wind field (vector plot)
+         UVEL = u-component of the wind (contour plot)
+         VVEL = v-component of the wind (contour plot)
+         WVEL = w-component of the wind (contour plot)
+         TEMP = temperature (contour plot)
+         WDIR = wind direction (contour plot)
+         WSPE = wind speed (contour plot)
+         IPGT = PG stability class (contour plot)
+         USTA = friction velocity u-star (contour plot)
+         MONL = Monin-Obukhov length (contour plot)
+         WSTA = convective velocity w-star (contour plot)
+         MIXH = mixing height (contour plot)
+         PREC = precipitation rate (contour plot)
+    b
+     Each pair of lines is treated as a separate input subgroup and
+     therefore must end with an input group terminator.
+
+--------------------------------------------------------------------------------
+
+
+INPUT GROUP: 4 -- Average Field Output Plotfiles
+--------------
+
+-------------
+Subgroup (4a)
+-------------
+
+     Number of average field plotfiles
+     (NMEAN)                    Default: 0      ! NMEAN = 0 !
+
+     Time period to begin averaging
+     (timestep within processing period)
+     (IBEGAV)                   Default: 1      ! IBEGAV = 1 !
+
+    Time period to end averaging
+     (timestep within processing period)
+     (IENDAV)                   Default: 1      ! IENDAV = 1 !
+
+
+!END!
+
+-------------
+Subgroup (4b)
+-------------
+                                                        a,b
+          AVERAGE PLOT DEFINITION (NMEAN 2-line entries)
+          ----------------------------------------------
+
+             Layer
+             -----
+
+* FILEMEAN =   t1_20.grd    *
+* TEMP     =   1            *  *END*
+
+-------------
+    a
+     Enter information for each of the NMEAN plotfiles in 2-line groups.
+     One line identifies the filename (FILEMEAN = outfile), and the
+     other line defines the type of average and the layer.
+     The type (e.g., MIXH =) must be one of the following:
+         VECT = wind field (vector plot)
+         UVEL = u-component of the wind (contour plot)
+         VVEL = v-component of the wind (contour plot)
+         WVEL = w-component of the wind (contour plot)
+         TEMP = temperature (contour plot)
+         WDIR = wind direction (contour plot)
+         WSPE = wind speed (contour plot)
+         IPGT = PG stability class (contour plot)
+         USTA = friction velocity u-star (contour plot)
+         MONL = Monin-Obukhov length (contour plot)
+         WSTA = convective velocity w-star (contour plot)
+         MIXH = mixing height (contour plot)
+         PREC = precipitation rate (contour plot)
+    b
+     Each pair of lines is treated as a separate input subgroup and
+     therefore must end with an input group terminator.
+

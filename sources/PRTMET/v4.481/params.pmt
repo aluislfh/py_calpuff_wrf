@@ -1,0 +1,40 @@
+c-----------------------------------------------------------------------
+c --- PRTMET - PARAMETER FILE 
+c-----------------------------------------------------------------------
+c --- Specify model version
+      character*12 mver, mlevel
+      parameter(mver='4.481',mlevel='080407')
+c
+c --- Specify parameters
+      parameter(mxnx=265,mxny=265,mxnz=50)
+      parameter(mxss=350,mxus=99,mxps=700)
+      parameter(mxsnap=400,mxav=6)
+      parameter(icols=100)
+      parameter(io1=1,io5=15,io6=16,io7=7,io9=9)
+      parameter(iomesg=0)
+c
+      parameter(mxxy=mxnx*mxny,mxxyz=mxnx*mxny*mxnz)
+      parameter(mxnzp1=mxnz+1)
+      parameter(mxnXp=mxnX,mxnYp=mxnY,mxnZp=mxnZ)
+c
+c --- Parameter definitions:
+c       MVER    - version number of PRTMET
+c       MLEVEL  - level (e.g. release date code) of PRTMET
+c       MXNX    - maximum number of x grid cells in domain
+c       MXNY    - maximum number of y grid cells in domain
+c       MXNZ    - maximum number of vertical layers in domain
+c       MXSS    - maximum number of surface stations
+c       MXUS    - maximum number of upper-air stations
+c       MXPS    - maximum number of precipitation stations
+c       MXSNAP  - maximum number of snapshot plots
+c       MXAV    - maximum number of average-value plots
+c       ICOLS   - number of columns in tabulated output
+c
+c --- FORTRAN I/O unit numbers:
+c       IOMESG  - unit number for screen         - output
+c       IO1     - Timeserie file (PRTTIMTE.TXT)  - output - formatted
+c       IO5     - Control file (PRTMET.INP)      - input  - formatted
+c       IO6     - Run list File (PRTMET.LST)     - output - formatted
+c       IO7     - CALMET output file (CALMET.DAT)- input  - unformatted
+c       IO9     - Output data plot files         - output - formatted
+c                 (repeatedly opened for each file)

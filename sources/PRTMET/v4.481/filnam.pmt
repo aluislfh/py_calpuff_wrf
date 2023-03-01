@@ -1,0 +1,52 @@
+c-----------------------------------------------------------------------
+c --- COMMON BLOCK /FILNAM/ -- File names                         PRTMET
+c-----------------------------------------------------------------------
+      character*132 runinp,runlst,metdat,tegrd,lugrd,ligrd,z0grd
+      character*132 prttime,sstadat,pstadat,ustadat,gridbna,luclr
+      character*132 pgtclr,filesnap(mxsnap),fileav(mxav)
+
+      logical lcfiles
+
+      common /FILNAM/ runinp,runlst,metdat,tegrd,lugrd,ligrd,z0grd,
+     &                prttime,sstadat,pstadat,ustadat,gridbna,luclr,
+     &                pgtclr,filesnap,fileav
+      common /FILLOG/ lcfiles
+
+c-----------------------------------------------------------------------
+c     DEFINITIONS  [i]=integer   [r]=real   [l]=logical   [c]=character
+c-----------------------------------------------------------------------
+c runinp         Path & filename for the control file                [c]
+c                (default: PRTMET.INP)
+c runlst         Path & filename for the output MAKEGEO list file    [c]
+c                (default: MAKEGEO.LST)
+c metdat         Path & filename for the input CALMET.DAT file       [c]
+c                (default: CALMET.DAT)
+c tegrd          Path & filename for the output terrain plot file    [c]
+c                (default: QATERR.GRD)
+c lugrd          Path & filename for the output land use plot file   [c]
+c                (default: QALUSE.GRD)
+c ligrd          Path & filename for the output leaf area plot file  [c]
+c                (default: QALAI.GRD)
+c z0grd          Path & filename for the output roughness plot file  [c]
+c                (default: QAz0.GRD)
+c prttime        Path & filename for the output timeserie file       [c]
+c                (default: PRTTIME.TXT)
+c sstadat        Path & filename for the output surface station file [c]
+c                (default: QASSTA.DAT)
+c pstadat        Path & filename for the output precip station file  [c]
+c                (default: QAPSTA.DAT)
+c ustadat        Path & filename for output upper-air station file   [c]
+c                (default: QAUSTA.DAT)
+c gridbna        Path & filename for the output met grid BNA file    [c]
+c                (default: QAMETG.BNA)
+c luclr          Path & filename for the output land use color file  [c]
+c                (default: LUSE.CLR)
+c pgtclr         Path & filename for the output PGT class color file [c]
+c                (default: PGT.CLR)
+c filesnap(mxsnap) Path & filename for the output snapshot files    [ca]
+c fileav(mxav)   Path & filename for the output average files       [ca]
+c lcfiles        Switch indicating if all characters in the          [l]
+c                filenames are to be converted to lower case
+c                letters (LCFILES=T) or converted to UPPER
+c                case letters (LCFILES=F).
+c-----------------------------------------------------------------------
